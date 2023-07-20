@@ -5,6 +5,9 @@
         Interrogation - Investigators Onsite
     </title>
     <style>
+        body{
+            background-color: #263859;
+        }
         .game-screen {
             margin: 3% auto;
             width: 87%;
@@ -18,15 +21,25 @@
             align-items: center;
         }
         .text-box {
-            background-color: #72c7de; /* Adjust the background color and opacity as needed */
-            padding: 0px;
-            max-width: 50%;
+            background-color: #65799B; /* Adjust the background color and opacity as needed */
+            padding: 1.5%;
+            height: 10%;
+            max-width: 55%;
             text-align: left;
             border-radius: 5px;
+            border: 2px solid #A5C9CA;
             margin: auto;
             resize : None;
-            font-size: 18px;
+            font-size: 20px;
             line-height: 1.5;
+        }
+        .blue-text {
+            color : #162447;
+            font-weight: bold;
+        }
+        .red-text {
+            color : #950101;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -35,12 +48,30 @@
         <img src="/static/random_interrogate.jpg" alt="Game Image" width="100%" height="515">
     </div>
     <div class="text-box" onclick="changeText()">
-        Suspsect: Listen, you gotta believe me officer. I did nothing wrong! I am being framed! <br> I would never kill a person ;)
+        Click box to see conversation.
     </div>
     <script>
+        const dialouge = [
+            "<span class ='red-text'> Suspect:</span> Listen, you gotta believe me officer. I did nothing wrong! I am being framed! I would never kill a person ;)",
+            "<span class='blue-text'>Officer:</span> *Sigh* You winked at me...I know you're lying.", 
+            "<span class ='red-text'> Suspect:</span> Whatttttt...Lying? Pshhhh, we both know I am innocent ;)",
+            "<span class='blue-text'>Officer:</span> No. I know you are guilty.",
+            "<span class ='red-text'> Suspect:</span>: Guilty? Me? What evidence is there that proves I am a murderer?",
+            "<span class='blue-text'>Officer:</span> Security camera footage at the scene where the murder took place.",
+            "<span class ='red-text'> Suspect:</span> Ha! Well, that footage must be a deepfake because I never left Manhattan much less went all the way up to Buffalo",
+            "<span class='blue-text'>Officer:</span> Alright we are done here. Take 'em away.",
+            "<span class ='red-text'> Suspect:</span> What? Why? You didn't even provide evidence.",
+            "<span class='blue-text'>Officer:</span> I didn't tell you where the murder happened. -_-",
+            "<span class ='red-text'> Suspect:</span> ;)"
+        ]
+        let index = 0;
         function changeText() {
             const textBox = document.querySelector('.text-box');
-            textBox.innerHTML = "Officer: *Sigh* You winked at me...I know you're lying.\n";
+            textBox.innerHTML = dialouge[index];
+            if (index + 1 < dialouge.length){
+                index++;
+            }
+                
         }  
     </script>
 </body>

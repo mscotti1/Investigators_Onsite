@@ -1,0 +1,40 @@
+body{
+    background-color: #263859;
+}
+
+.game-screen {
+    margin: 3% auto;
+    width: 87%;
+    height: 50%;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-box {
+    background-color: #65799B; /* Adjust the background color and opacity as needed */
+    padding: 1.5%;
+    height: 10%;
+    max-width: 55%;
+    text-align: left;
+    border-radius: 5px;
+    border: 2px solid #A5C9CA;
+    margin: auto;
+    resize : None;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.blue-text {
+    color : #162447;
+    font-weight: bold;
+}
+
+.red-text {
+    color : #950101;
+    font-weight: bold;
+}

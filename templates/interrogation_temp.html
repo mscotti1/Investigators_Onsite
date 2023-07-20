@@ -4,21 +4,15 @@
     <title>
         Interrogation - Investigators Onsite
     </title>
-    <style>
-        .game-screen {
-            margin: 10%;
-            padding: 0%;
-            background-image: url('static/random_interrogate.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh; /* This makes the background image take up the full viewport height */
-        }
-    </style>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
 </head>
 <body>
     <div class="game-screen">
-
+        <img src="{{url_for('static', filename='random_interrogate.jpg')}}" alt="Game Image" width="100%" height="515">
     </div>
+    <div class="text-box" onclick="changeText(dialouge_sample)">
+        Click box to see conversation.
+    </div>
+    <script src="{{url_for('static', filename='main.js')}}"></script>
 </body>
 </html>

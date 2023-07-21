@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Interrogation - Investigators Onsite
+    </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="interrogation-screen">
+            <img src="{{url_for('static', filename='random_oneperson.jpg')}}" alt="Game Image" width="100%" height="600">
+        </div>
+        <div id="fortywidth">
+            <div class="talk-box" onclick="display_message()">
+                <div id="start">
+                    Click to start interrogation.
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="option-button" onclick="choose_message('said', 'You are going to jail')"> You are going to jail</button>
+                <button class="option-button" onclick="choose_message('said', 'I understand ;)')">I understand ;)</button>
+                <button class="option-button" onclick="choose_message('said', 'I am surprised that you actually commited this murder')">I am surprised that you actually commited this murder</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const dialouge = [
+            { sender: 'heard', text: "ME? MURDER? NEVER!" },
+            { sender: 'said', text: "Definitely, something a murderer would say..." },
+            { sender: 'heard', text: "But I am being framed. FRAMED I SAY!" },
+            { sender: 'said', text: "*Gasp* I never considered this! Who do you think is framing you?" },
+            { sender: 'heard', text: "I think I remember seeing Joe that day." },
+            { sender: 'heard', text: "Yea!"}, 
+            { sender: 'heard', text: "He was definitely the last person to see Beck alive before me!"},
+            { sender: 'said', text: "-_-" },
+            { sender: 'said', text: "Do you hear yourself?" },
+            { sender: 'said', text: "Straight to jail. Do not pass go." },
+            { sender: 'heard', text: "Man, why did you have to pretend to be on my side. T_T" },
+        ];
+        
+        const message_container = document.querySelector('.talk-box');
+        let message_index = 0;
+
+        function display_message(){
+            document.getElementById('start').innerHTML = "";
+            if (message_index < dialouge.length){
+                const message = dialouge[message_index];
+                const message_element = document.createElement('div');
+                const stylish = document.createElement('div');
+                message_element.classList.add('message', message.sender);
+                stylish.textContent = message.text;
+                if (message.sender == 'heard'){
+                    stylish.classList.add('stylish_heard');
+                }
+                else if (message.sender == 'said'){
+                    stylish.classList.add('stylish_said');
+                }
+                message_element.appendChild(stylish);
+                message_container.appendChild(message_element);
+   
+                message_index++;
+            }
+        }
+
+        function choose_message(sender, text){
+            const message_element = document.createElement('div');
+            message_element.classList.add('message', sender);
+            message_element.textContent = text;
+            message_container.appendChild(message_element);
+        }
+    </script>
+    <!-- <script src="{{url_for('static', filename='main.js')}}"></script> -->
+</body>
+</html>

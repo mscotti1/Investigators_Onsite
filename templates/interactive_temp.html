@@ -58,16 +58,31 @@
                 }
                 message_element.appendChild(stylish);
                 message_container.appendChild(message_element);
-   
+
+                scroll_talk_box_bottom();
                 message_index++;
             }
         }
 
         function choose_message(sender, text){
             const message_element = document.createElement('div');
+            const stylish = document.createElement('div');
             message_element.classList.add('message', sender);
-            message_element.textContent = text;
+            stylish.textContent = text;
+            if (sender == 'heard'){
+                stylish.classList.add('stylish_heard');
+            }
+            else if (sender == 'said'){
+                stylish.classList.add('stylish_said');
+            }
+            message_element.appendChild(stylish);
             message_container.appendChild(message_element);
+            
+            scroll_talk_box_bottom();
+        }
+
+        function scroll_talk_box_bottom() {
+            message_container.scrollTop = message_container.scrollHeight;
         }
     </script>
     <!-- <script src="{{url_for('static', filename='main.js')}}"></script> -->

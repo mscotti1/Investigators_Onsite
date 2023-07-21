@@ -44,35 +44,41 @@ function goNextPage() {
                 openBook();
                 paper1.classList.add("flipped");
                 setTimeout(function() {
-                    paper1.style.zIndex = 1;
+                    paper1.style.zIndex = 0;
                     console.log("This line will execute after 0.5 seconds.");
                   }, 250); // 500 milliseconds = 0.5 seconds
                 break;
             case 2:
                 paper2.classList.add("flipped");
                 setTimeout(function() {
-                    paper2.style.zIndex = 2;
+                    paper2.style.zIndex = 0;
                     console.log("This line will execute after 0.5 seconds.");
                   }, 250); // 500 milliseconds = 0.5 seconds
                 break;
             case 3:
                 paper3.classList.add("flipped");
                 setTimeout(function() {
-                    paper3.style.zIndex = 3;
+                    paper3.style.zIndex = 0;
                     console.log("This line will execute after 0.5 seconds.");
                   }, 250); // 500 milliseconds = 0.5 seconds
                 break;
             case 4:
                 paper4.classList.add("flipped");
-                paper4.style.zIndex = 4;
+                setTimeout(function() {
+                    paper4.style.zIndex = 0;
+                    console.log("This line will execute after 0.5 seconds.");
+                  }, 250); // 500 milliseconds = 0.5 seconds
                 break;
             case 5:
                 paper5.classList.add("flipped");
-                paper5.style.zIndex = 5;
+                setTimeout(function() {
+                    paper5.style.zIndex = 0;
+                    console.log("This line will execute after 0.5 seconds.");
+                  }, 250); // 500 milliseconds = 0.5 seconds
                 break;
             case 6:
                 paper6.classList.add("flipped");
-                paper6.style.zIndex = 6;
+                paper6.style.zIndex = 0;
                 closeBook(false);
                 break;
             default:
@@ -101,12 +107,14 @@ function goPrevPage() {
                 break;
             case 5:
                 paper4.classList.remove("flipped");
+                paper4.style.zIndex = 3;
                 setTimeout(function() {
                     paper4.style.zIndex = 3;
                     console.log("This line will execute after 0.5 seconds.");
                   }, 500); // 500 milliseconds = 0.5 seconds
                 break;
             case 6:
+                paper5.style.zIndex = 2;
                 setTimeout(function() {
                     paper5.style.zIndex = 2;
                     console.log("This line will execute after 0.5 seconds.");
@@ -115,6 +123,7 @@ function goPrevPage() {
                 break;
             case 7:
                 openBook();
+                paper6.style.zIndex = 1;
                 setTimeout(function() {
                     paper6.style.zIndex = 1;
                     console.log("This line will execute after 0.5 seconds.");

@@ -6,9 +6,25 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route("/statistics")
-def Statistics():
+@app.route("/stats")
+def statistics():
     return render_template("statistics_temp.html")
+
+@app.route("/Bug")
+def Buglary():
+    return render_template("Buglary.html")
+
+@app.route("/hom")
+def homicide():
+    return render_template("homicide.html")
+
+@app.route("/Cyber")
+def Cyber_crime():
+    return render_template("Cyber_crime.html")
+
+@app.route("/Central")
+def Central_Park():
+    return render_template("Central_Park.html")
 
 @app.route("/listen")
 def interrogation():

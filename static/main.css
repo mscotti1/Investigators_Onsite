@@ -56,20 +56,36 @@ body{
     background-color: #65799B; 
 }
 .message {
-    margin: 1%;
-    padding: 10px;
+    display: flex;
     border-radius: 8px;
-    background-color: #f2f2f2;
 }
 .heard {
-    float: left;
+    /* float: left; */
+    display: flex;
     text-align: left;
+    justify-content: flex-start;
+    /* background-color: #fd9ea4; */
+}
+.stylish_heard {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 10px;
     background-color: #fd9ea4;
+    border-radius: 5px;
 }
 .said {
-    float: right;
+    /* float: right; */
+    display: flex;
     text-align: right;
+    justify-content: flex-end;
+    /* background-color: rgb(122, 153, 245); */
+}
+.stylish_said {
+    margin-top: 1%;
+    margin-bottom: 1%;
+    padding: 10px;
     background-color: rgb(122, 153, 245);
+    border-radius: 5px;
 }
 .button-container{
     margin: 0px;

@@ -37,7 +37,6 @@
             { sender: 'said', text: "Do you hear yourself?" },
             { sender: 'said', text: "Straight to jail. Do not pass go." },
             { sender: 'heard', text: "Man, why did you have to pretend to be on my side. T_T" },
-
         ];
         
         const message_container = document.querySelector('.talk-box');
@@ -48,9 +47,18 @@
             if (message_index < dialouge.length){
                 const message = dialouge[message_index];
                 const message_element = document.createElement('div');
+                const stylish = document.createElement('div');
                 message_element.classList.add('message', message.sender);
-                message_element.textContent = message.text;
+                stylish.textContent = message.text;
+                if (message.sender == 'heard'){
+                    stylish.classList.add('stylish_heard');
+                }
+                else if (message.sender == 'said'){
+                    stylish.classList.add('stylish_said');
+                }
+                message_element.appendChild(stylish);
                 message_container.appendChild(message_element);
+   
                 message_index++;
             }
         }

@@ -6,9 +6,13 @@ app = Flask(__name__)
 def home():
     return render_template("home.html")
 
-@app.route("/interrogation")
+@app.route("/listen")
 def interrogation():
-    return render_template("interrogation_temp.html")
+    return render_template("listen_temp.html")
+
+@app.route("/interrogation")
+def interactive():
+    return render_template("interactive_temp.html")
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

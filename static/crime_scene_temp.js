@@ -5,10 +5,11 @@ let display_3 = false;
 let total_evidence = 6;
 let found_1 = false;
 let found_2 = false;
-let found_3= false;
+let found_3 = false;
 let found_4 = false;
 let found_5 = false;
 let found_6 = false;
+let first_find = true;
 
 info_list = [
     "This is evidence 1.",
@@ -144,7 +145,10 @@ function display_info(ev){
 function reveal_continue(){
     const button_continue = document.querySelector('#continue');
     if (found_1 == true && found_2 == true && found_3 == true && found_4 == true && found_5 == true && found_6 == true){
-        button_continue.style.display = 'block';
-        alert("You found all the evidence!");
+        if (first_find == true){
+            button_continue.style.display = 'block';
+            alert("You found all the evidence!");
+            first_find = false;
+        }
     }
 }

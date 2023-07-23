@@ -1,4 +1,4 @@
-const dialouge_sample = [
+const dialogue_sample = [
     "<span class ='red-text'> Suspect:</span> Listen, you gotta believe me officer. I did nothing wrong! I am being framed! I would never kill a person ;)",
     "<span class='blue-text'>Officer:</span> *Sigh* You winked at me...I know you're lying.", 
     "<span class ='red-text'> Suspect:</span> Whatttttt...Lying? Pshhhh, we both know I am innocent ;)",
@@ -12,10 +12,10 @@ const dialouge_sample = [
     "<span class ='red-text'> Suspect:</span> ;)"
 ]
 let index = 0;
-function changeText(dialouge) {
+function changeText(dialogue) {
     const textBox = document.querySelector('.text-box');
-    textBox.innerHTML = dialouge[index];
-    if (index + 1 < dialouge.length){
+    textBox.innerHTML = dialogue[index];
+    if (index + 1 < dialogue.length){
         index++;
     }
         

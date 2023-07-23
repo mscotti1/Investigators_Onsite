@@ -12,20 +12,32 @@
             <img src="{{url_for('static', filename='random_oneperson.jpg')}}" alt="Game Image" width="100%" height="600">
         </div>
         <div id="fortywidth">
-            <div class="talk-box" onclick="display_message()">
+            <!-- <div class="talk-box" onclick="display_script(root.script_list)"> -->
+            <div class="talk-box" onclick="node_tracker(current_node)">
                 <div id="start">
                     Click to start interrogation.
                 </div>
             </div>
             <div class="button-container">
-                <button class="option-button" onclick="choose_message('said', 'You are going to jail')"> You are going to jail</button>
-                <button class="option-button" onclick="choose_message('said', 'I understand ;)')">I understand ;)</button>
-                <button class="option-button" onclick="choose_message('said', 'I am surprised that you actually commited this murder')">I am surprised that you actually commited this murder</button>
+                <button class="option-button" id='option_L00' onclick="node_tracker(current_node.left_opt)"> You are going to jail</button>
+                <button class="option-button" id='option_R00' onclick="node_tracker(current_node.right_opt)">I understand ;)</button>
+                
+                <button class="option-button" id='option_L10' onclick="node_tracker(current_node.left_opt)"> You are going to jail</button>
+                <button class="option-button" id='option_L11' onclick="node_tracker(current_node.right_opt)">I understand ;)</button>
+
+                <button class="option-button" id='option_R10' onclick="node_tracker(current_node.left_opt)"> You are going to jail</button>
+                <button class="option-button" id='option_R11' onclick="node_tracker(current_node.right_opt)">I understand ;)</button>
+                <!-- <button class="option-button" id='option1' onclick="choose_message('said', 'You are going to jail')"> You are going to jail</button>
+                <button class="option-button" id='option2' onclick="choose_message('said', 'I understand ;)')">I understand ;)</button> -->
+                <!-- <button class="option-button" onclick="choose_message('said', 'I am surprised that you actually commited this murder')">I am surprised that you actually commited this murder</button> -->
             </div>
         </div>
     </div>
     <script>
-        const dialouge = [
+        let id1 = "#option_L00";
+        let id2 = "#option_R00";
+        
+        const dialogue_start = [
             { sender: 'heard', text: "ME? MURDER? NEVER!" },
             { sender: 'said', text: "Definitely, something a murderer would say..." },
             { sender: 'heard', text: "But I am being framed. FRAMED I SAY!" },
@@ -40,12 +52,55 @@
         ];
         
         const message_container = document.querySelector('.talk-box');
+
+        const right_dia_1 = [
+            { sender: 'heard', text: "SAVE ME FROM JAIL TIME" },
+            { sender: 'said', text: "Choosing right" },
+            { sender: 'heard', text: "Please bestie ;)" }
+        ];
+
+        const left_dia_1 = [
+            { sender: 'said', text: "-_-" },
+            { sender: 'said', text: "Choosing left" },
+            { sender: 'said', text: "JAIL TIME" },
+            { sender: 'heard', text: "Boooo. I don't wanna go to jail... T_T" }
+        ];
+
+        class Script{
+            constructor(script_list, left_opt, right_opt) {
+                this.script_list = script_list;
+                this.left_opt = left_opt;
+                this.right_opt = right_opt;
+            }
+        }
+
+        const right_1 = new Script(right_dia_1, null, null);
+        const left_1 = new Script(left_dia_1, null, null);
+        const root = new Script(dialogue_start, left_1, right_1);
+
+        let current_node = root;
+
+        function node_tracker(node){
+            console.log(node);
+            // allows messages to be displayed after choposing button by resetting the message_index
+            if (current_node != node){
+                message_index = 0;
+                button_hide(id1, id2);
+            }
+            current_node = node;
+            if (node != null){
+                display_script(node.script_list);
+                return;
+            }
+            console.log("Reached the end");
+        }
+
         let message_index = 0;
 
-        function display_message(){
+        function display_script(dialogue){
             document.getElementById('start').innerHTML = "";
-            if (message_index < dialouge.length){
-                const message = dialouge[message_index];
+            if (message_index < dialogue.length){
+                const message = dialogue[message_index];
                 const message_element = document.createElement('div');
                 const stylish = document.createElement('div');
                 message_element.classList.add('message', message.sender);
@@ -62,24 +117,48 @@
                 scroll_talk_box_bottom();
                 message_index++;
             }
+            // displays the buttons when the script runs out
+            // even if it slightly alters the goal of display_script
+            if (message_index >= dialogue.length){
+                button_reveal(id1, id2);
+            }
         }
 
-        function choose_message(sender, text){
-            const message_element = document.createElement('div');
-            const stylish = document.createElement('div');
-            message_element.classList.add('message', sender);
-            stylish.textContent = text;
-            if (sender == 'heard'){
-                stylish.classList.add('stylish_heard');
-            }
-            else if (sender == 'said'){
-                stylish.classList.add('stylish_said');
-            }
-            message_element.appendChild(stylish);
-            message_container.appendChild(message_element);
-            
-            scroll_talk_box_bottom();
+        function button_reveal(id1, id2){
+            const option_0 = document.querySelector(id1);
+            const option_1 = document.querySelector(id2);
+
+            option_0.style.display = 'block';
+            option_1.style.display = 'block';
         }
+
+        function button_hide(id1, id2){
+            const option_0 = document.querySelector(id1);
+            const option_1 = document.querySelector(id2);
+
+            option_0.style.display = 'none';
+            option_1.style.display = 'none';
+        }
+        // function choose_message(sender, text){
+        //     const option_1 = document.querySelector('#option0');
+        //     const option_2 = document.querySelector('#option1');
+        //     const message_element = document.createElement('div');
+        //     const stylish = document.createElement('div');
+        //     message_element.classList.add('message', sender);
+        //     stylish.textContent = text;
+        //     if (sender == 'heard'){
+        //         stylish.classList.add('stylish_heard');
+        //     }
+        //     else if (sender == 'said'){
+        //         stylish.classList.add('stylish_said');
+        //     }
+        //     message_element.appendChild(stylish);
+        //     message_container.appendChild(message_element);
+
+        //     scroll_talk_box_bottom();
+        //     option_1.style.display = 'none';
+        //     option_2.style.display = 'none';
+        // }
 
         function scroll_talk_box_bottom() {
             message_container.scrollTop = message_container.scrollHeight;

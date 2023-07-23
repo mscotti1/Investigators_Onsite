@@ -1,0 +1,35 @@
+.listen-screen {
+    margin-top: 3% ;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 87%;
+    height: 50%;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-box {
+    background-color: #65799B; 
+    padding: 1.5%;
+    height: 10%;
+    max-width: 55%;
+    text-align: left;
+    border-radius: 5px;
+    border: 2px solid #A5C9CA;
+    margin: auto;
+    resize : None;
+    font-size: 20px;
+    line-height: 1.5;
+}
+.blue-text {
+    color : rgb(16, 12, 248);
+    font-weight: bold;
+}
+.red-text {
+    color : #a50000;
+    font-weight: bold;
+}

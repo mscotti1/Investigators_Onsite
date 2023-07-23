@@ -34,5 +34,9 @@ def interrogation():
 def interactive():
     return render_template("interactive_temp.html")
 
+@app.route("/crime_scene")
+def crime_scene():
+    return render_template("crime_scene_temp.html")
+
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

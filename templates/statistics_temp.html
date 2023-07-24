@@ -62,7 +62,7 @@
 
     .box-bottom-left {
       align-self: flex-end;
-      height: 70px;
+      height: 30px;
       border-radius: 80px;
       font-size: 40px;
       border: 4px solid #000;
@@ -70,7 +70,7 @@
 
     .box-bottom-right {
       align-self: flex-end;
-      height: 70px;
+      height: 30px;
       border-radius: 80px;
       font-size: 40px;
       border: 4px solid #000;
@@ -81,8 +81,8 @@
       display: flex;
       justify-content: box-left;
       align-items: center;
-      height: 400%;
-      width: 900%;
+      height: 500%;
+      width: 950%;
     }
 
     /* New styles for the image */
@@ -93,40 +93,6 @@
 
   </style>
 </head>
-<body>
-  <div class="container">
-    <div class="box box-top-center">
-      <p>Here are the most common crimes in your area</p>
-    </div>
 
-    <div class="box box-left">
-      <p>This case was based on INSERT CASE</p>
-      <p>Link: www.example.com</p>
-      <!-- The image container -->
-      <div class="image-container">
-        <img src="/Investigators_Onsite/static/mascott.jpg" alt="Image">
-      </div>
-    </div>
-
-    <div class="box box-right">
-      <p>How to prevent xx crime</p>
-      <p>How to prevent xx crime</p>
-      <p>How to prevent xx crime</p>
-      <p>How to prevent xx crime</p>
-      <p>How to prevent xx crime</p>
-      <p>How to prevent xx crime</p>
-      <p>How to prevent xx crime</p>
-      <p>Hotlines</p>
-    </div>
-
-    <a href="/Investigators_Onsite/Kalems_dev_idk/index.html" class="box box-left box-bottom-left">
-      <p style="margin: 0; display: flex; justify-content: center; align-items: center;">Level Select</p>
-    </a>
-
-    <a href="/Investigators_Onsite/templates/home.html" class="box box-right box-bottom-right">
-      <p style="margin: 0; display: flex; justify-content: center; align-items: center;">Home</p>
-    </a>
-  </div>
   {% block content %}{% endblock %}
-</body>
 </html>

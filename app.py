@@ -14,6 +14,10 @@ def statistics():
 def burglary():
     return render_template("Burglary/Burglary.html")
 
+@app.route('/bug_crime_scene_1')
+def bug_crime_1():
+    return render_template("Burglary/crime_scene_1.html")
+
 @app.route("/hom")
 def homicide():
     return render_template("Homicide/homicide.html")

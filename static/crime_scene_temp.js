@@ -3,6 +3,7 @@ let display_2 = false;
 let display_3 = false;
 
 let total_evidence = 6;
+
 let found_1 = false;
 let found_2 = false;
 let found_3 = false;

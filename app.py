@@ -38,6 +38,10 @@ def interactive():
 def crime_scene():
     return render_template("crime_scene_temp.html")
 
+@app.route("/level_select")
+def level_select():
+    return render_template("level_select.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

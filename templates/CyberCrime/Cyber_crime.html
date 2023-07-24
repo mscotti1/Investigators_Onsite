@@ -11,7 +11,7 @@
       <p>Link:https://shorturl.at/gkOT9</p>
       <!-- The image container -->
       <div class="image-container">
-        <img src="/static/mascott.jpg" alt="Image">
+        <img src="{{url_for('static', filename='images/mascott.jpg')}}" alt="Image">
       </div>
     </div>
 
@@ -30,7 +30,7 @@
       <p style="margin: 0; display: flex; justify-content: center; align-items: center;">Level Select</p>
     </a>
 
-    <a href="https://example.com/home" class="box box-right box-bottom-right">
+    <a href="{{url_for('home')}}" class="box box-right box-bottom-right">
       <p style="margin: 0; display: flex; justify-content: center; align-items: center;">Home</p>
     </a>
 </body>

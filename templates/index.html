@@ -41,30 +41,73 @@
                     <h6>#1 Trending Game</h6>
                     <!-- <h3>Epic Games</h3> -->
                     <h1>Investigators <br> OnSite</h1>
-                    <p>There will be text here!</p>
-                    <a href="#">Play Now</a>
-                    <a href="#" class="cta"><i class="fa-solid fa-play"></i>Play Now</a>
+                    <p>Welcome to Investigators Onsite! Here, you will investigate real-life crimes, while also learning valuable information
+                        about how to protect yourself and the people around you.
+                    </p>
+                    <!-- <a href="#">Play Now</a> -->
+                    <a href="#" class="cta" id="myBtn"><i class="fa-solid fa-play"></i>Play Now</a>
                     <!-- <h3>Enter your Zipcode:</h3>
                     <input type="text" id="zipcode-input" placeholder="Enter your zipcode"> -->
                     <!-- <button onclick="saveZipcode()">Submit</button> -->
                     <!-- <button onclick="getElementById('zipcode-input').value">Submit</button> -->
-                    Name:<input type="text" id="myText" placeholder="Enter your zipcode">
+                    <!-- Name:<input type="text" id="myText" placeholder="Enter your zipcode">
                     <button type="button" onclick="myFunction()">Try it</button>
-                    <p id="demo"></p>
+                    <p id="demo"></p> -->
+                    <!-- Trigger/Open The Modal -->
+                    <!-- <button id="myBtn">Open Modal</button> -->
+                    <!-- The Modal -->
+                    <div id="myModal" class="modal">
+                        <!-- Modal content -->
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            Input your zip code: <input type="text" id="myText" placeholder="Enter your zipcode">
+                            <button type="button" onclick="myFunction()">Submit</button>
+                            <p id="zipcode"></p>
+                            <!-- <p>Some text in the Modal..</p> -->
+                        </div>
+
+                    </div>
                 </div>
             <div class="image">
                 <img src="static/project.png"
             </div>
+            
             </div>
             
         </div>
     </section>
+
 <script>
-      
     // Here the value is stored in new variable x 
     function myFunction() {
         var x = document.getElementById("myText").value;
-        document.getElementById("demo").innerHTML = x;
+        document.getElementById("zipcode").innerHTML = "Success! Your inputted zipcode is " + x + ".";
+    }
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+    modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+    modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
     }
 </script>
 </body>

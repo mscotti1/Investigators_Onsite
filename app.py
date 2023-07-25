@@ -50,6 +50,12 @@ def crime_scene():
 def level_select():
     return render_template("level_select.html")
 
+@app.route("/file")
+def file():
+    return render_template("file_template.html")
+
+
+
 # @app.route("/process_zip", methods = "POST")
 # def process_zip():
 #     pass

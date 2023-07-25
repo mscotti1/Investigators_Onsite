@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> Investigators Onsite </title>
+    <!-- <script src="{{ url_for('static', filename='script.js') }}"></script> -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&
+    family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/
+    css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/
+    E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type= "text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" type= "text/css" href="{{ url_for('static',filename='styles.css') }}">
+
+</head>
+<body>
+    <section class="hero">
+        <div class="main-width">
+            <header>
+                <div class="logo">
+                    <h2><a href="#">GameOn</a></h2>
+                </div>
+
+                <nav>
+                    <u1>
+                        <li class="navli"><a href="active">Games</a></li>
+                        <li class="navli"><a href="#">Reviews</a></li>
+                        <li class="navli"><a href="#">Faq</a></li>
+                        <li class="navli"><a href="#">Chat</a></li>
+                        <li class="navli"><a class="download" href="btn">Download</a></li>
+                    </u1>
+                </nav>
+            </header>
+            <div class="content">
+                <div class="main-text">
+                    <h6>#1 Trending Game</h6>
+                    <!-- <h3>Epic Games</h3> -->
+                    <h1>Investigators <br> OnSite</h1>
+                    <p>There will be text here!</p>
+                    <a href="#">Play Now</a>
+                    <a href="#" class="cta"><i class="fa-solid fa-play"></i>Play Now</a>
+                    <!-- <h3>Enter your Zipcode:</h3>
+                    <input type="text" id="zipcode-input" placeholder="Enter your zipcode"> -->
+                    <!-- <button onclick="saveZipcode()">Submit</button> -->
+                    <!-- <button onclick="getElementById('zipcode-input').value">Submit</button> -->
+                    Name:<input type="text" id="myText" placeholder="Enter your zipcode">
+                    <button type="button" onclick="myFunction()">Try it</button>
+                    <p id="demo"></p>
+                </div>
+            <div class="image">
+                <img src="static/project.png"
+            </div>
+            </div>
+            
+        </div>
+    </section>
+<script>
+      
+    // Here the value is stored in new variable x 
+    function myFunction() {
+        var x = document.getElementById("myText").value;
+        document.getElementById("demo").innerHTML = x;
+    }
+</script>
+</body>
+</html>

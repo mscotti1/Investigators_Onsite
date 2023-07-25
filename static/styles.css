@@ -59,35 +59,17 @@ nav ul li a{
     /* border-bottom: 2px solid transparent; */
     transition: .4s;
 }
-/* nav ul li:not(:last-child) a:hover,
-nav ul li:not(:last-child) a:focus{
-    border-bottom: 2px solid white;
-} */
 
 .navli:not(:last-child) a:hover,
 .navli:not(:last-child) a:focus{
     border-bottom: 2px solid white;
 }
 
-/* nav ul li.active a{
-    border-bottom: 2px solid white;
-} */
 
 .navli.active a{
     border-bottom: 2px solid white;
 }
 
-/* nav ul li.btn a{
-    background: transparent;
-    color: white;
-    border: 1px solid #f5dca8;
-    padding: 9px 20px;
-    border-radius: 30px;
-    line-height: 1.4;
-    font-size: 14px;
-    font-weight: 500;
-    margin-left: 150px;
-} */
 .download {
     background: transparent;
     color: white;
@@ -99,13 +81,7 @@ nav ul li:not(:last-child) a:focus{
     font-weight: 500;
     margin-left: 150px;
 }
-/* nav ul li.btn:hover a{
-    border: 1px solid white;
-    color: black;
-    background: white;
-    transition: .4s;
 
-} */
 .download:hover {
     border: 1px solid white;
     color: black;
@@ -115,7 +91,7 @@ nav ul li:not(:last-child) a:focus{
 }
 
 .content{
-    padding-top: 140px;
+    padding-top: 130px;
 }
 .content .main-text{
     position: relative;
@@ -169,16 +145,17 @@ nav ul li:not(:last-child) a:focus{
 }
 .content .main-text a.cta{
     border: 1px solid;
-    color: white;
-    background: transparent;
-    margin-left: 20px;
+    color: black;
+    background: white;
+    /* margin-left: 20px; */
+    
 }
 .content .main-text a.cta i{
     margin-right: 12px;
 }
 .content .main-text a.cta:hover{
     color: black;
-    background: white;
+    background: transparent;
     border: 1px solid white;
     transition: .4s;
 }
@@ -195,3 +172,50 @@ nav ul li:not(:last-child) a:focus{
     height: 100%;
 }
 
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+
+  border: 1px solid white;
+  padding: 9px 25px ; 
+  line-height: 2.0; 
+  border-radius: 20px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#zipcode {
+    color: blue;
+}

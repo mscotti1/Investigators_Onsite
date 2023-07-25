@@ -79,3 +79,18 @@
 #fortywidth{
     width: 40%;
 }
+
+#continue{
+    background-color: #1864f3;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    right: 500px;
+    bottom: 175px;
+    color: rgb(238, 233, 233);
+    display: none;
+}
+#continue:hover{
+    background-color: #a50000;
+    cursor: pointer;
+}

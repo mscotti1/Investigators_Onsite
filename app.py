@@ -29,6 +29,9 @@ def hom_crime_1():
 @app.route("/hom/hom_listen_1")
 def hom_listen_1():
     return render_template("Homicide/listen_1.html")
+@app.route("/hom/hom_interrogate_1")
+def hom_interrogate_1():
+    return render_template("Homicide/interrogate_1.html")
 
 @app.route("/cyber")
 def Cyber_crime():
@@ -65,6 +68,14 @@ def cyber_listen():
 @app.route("/level_select")
 def level_select():
     return render_template("level_select.html")
+
+@app.route("/bug_crime2")
+def bug_crime2():
+    return render_template("Burglary/crime_scene2.html")
+
+@app.route("/bug_interrogate")
+def bug_int():
+    return render_template("Burglary/interrogation.html")
 
 @app.route("/file")
 def file():

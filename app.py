@@ -42,6 +42,10 @@ def interactive():
 def crime_scene():
     return render_template("crime_scene_temp.html")
 
+@app.route("/cyber_scene")
+def cyber_crime_scene():
+    return render_template("CyberCrime/crime_scene_cyber.html")
+
 @app.route("/level_select")
 def level_select():
     return render_template("level_select.html")

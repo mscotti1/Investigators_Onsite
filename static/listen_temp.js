@@ -18,5 +18,13 @@ function changeText(dialogue) {
     if (index + 1 < dialogue.length){
         index++;
     }
+    else{
+        reveal_continue();
+    }
         
 }  
+
+function reveal_continue(){
+    const button_continue = document.querySelector('#continue');
+        button_continue.style.display = 'block';
+    }

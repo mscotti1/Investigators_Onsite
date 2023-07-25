@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Interrogation - Investigators Onsite
+    </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='interactive_temp.css')}}">
+
+</head>
+<body>
+    <div class="container">
+        <div class="interrogation-screen">
+            <img src="{{url_for('static', filename='/images/random_oneperson.jpg')}}" alt="Game Image" width="100%" height="600">
+        </div>
+        <div id="fortywidth">
+            <div class="talk-box" onclick="node_tracker(current_node)">
+                <div id="start">
+                    Click to start interrogation.
+                </div>
+            </div>
+            <div class="button-container">
+                <button class="option-button" id='option_L0_1' onclick="node_tracker(current_node.left_opt)"> You are going to jail</button>
+                <button class="option-button" id='option_R0_1' onclick="node_tracker(current_node.right_opt)">I understand ;)</button>
+                
+                <button class="option-button" id='option_L1_1' onclick="node_tracker(current_node.left_opt)"> Left more 1</button>
+                <button class="option-button" id='option_L1_2' onclick="node_tracker(current_node.right_opt)">Left more 2</button>
+
+                <button class="option-button" id='option_R1_1' onclick="node_tracker(current_node.left_opt)"> Right more 1</button>
+                <button class="option-button" id='option_R1_2' onclick="node_tracker(current_node.right_opt)">Right more 2</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="{{url_for('static', filename='interactive_temp.js')}}"></script>
+    <script>
+        const dialogue_start = [
+            { sender: 'heard', text: "NEW WORDS" },
+            { sender: 'said', text: "Definitely, something a murderer would say..." },
+            { sender: 'heard', text: "But I am being framed. FRAMED I SAY!" },
+            { sender: 'said', text: "*Gasp* I never considered this! Who do you think is framing you?" },
+            { sender: 'heard', text: "I think I remember seeing Joe that day." },
+            { sender: 'heard', text: "Yea!"}, 
+            { sender: 'heard', text: "He was definitely the last person to see Beck alive before me!"},
+            { sender: 'said', text: "-_-" },
+            { sender: 'said', text: "Do you hear yourself?" },
+            { sender: 'said', text: "Straight to jail. Do not pass go." },
+            { sender: 'heard', text: "Man, why did you have to pretend to be on my side. T_T" },
+        ];
+
+        const right_dia_1 = [
+            { sender: 'heard', text: "NEW WORDS" },
+            { sender: 'said', text: "AWESOME" },
+            { sender: 'heard', text: "Please bestie ;)" }
+        ];
+
+        const left_dia_1 = [
+            { sender: 'said', text: "-_-" },
+            { sender: 'said', text: "NEW WORDS" },
+            { sender: 'said', text: "TUBULAR" },
+            { sender: 'heard', text: "Boooo. I don't wanna go to jail... T_T" }
+        ];
+
+        const right_dia_1_01 = [
+            { sender: 'heard', text: "NEW WORDS" },
+            { sender: 'said', text: "RAD" },
+            { sender: 'heard', text: "Please bestie ;)" }
+        ];
+
+        const right_dia_1_02 = [
+            { sender: 'heard', text: "NEW WORDS" },
+            { sender: 'said', text: "COOL" },
+            { sender: 'heard', text: "Please bestie ;)" }
+        ];
+
+        const left_dia_1_01 = [
+            { sender: 'said', text: "-_-" },
+            { sender: 'said', text: "NEW WORDS" },
+            { sender: 'said', text: "JWOO" },
+            { sender: 'heard', text: "Boooo. I don't wanna go to jail... T_T" }
+        ];
+
+        const left_dia_1_02 = [
+            { sender: 'said', text: "-_-" },
+            { sender: 'said', text: "NEW WORDS" },
+            { sender: 'said', text: "YURRR" },
+            { sender: 'heard', text: "Boooo. I don't wanna go to jail... T_T" }
+        ];
+
+        const right_1_02 = new Script(right_dia_1_02, null,null, null, null);
+        const right_1_01 = new Script(right_dia_1_01, null, null, null, null);
+
+        const left_1_02 = new Script(left_dia_1_02, null, null, null, null);
+        const left_1_01 = new Script(left_dia_1_01, null, null, null, null);
+
+        const right_1 = new Script(right_dia_1, right_1_01, right_1_02, "#option_R1_1", "#option_R1_2");
+        const left_1 = new Script(left_dia_1, left_1_01, left_1_02, "#option_L1_1", "#option_L1_2");
+
+        const root = new Script(dialogue_start, left_1, right_1, '#option_L0_1', 'option_R0_1');
+
+        let current_node = root;
+    </script>
+    
+</body>
+</html>

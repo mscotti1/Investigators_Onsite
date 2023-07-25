@@ -59,6 +59,14 @@ def cyber_crime_scene():
 def level_select():
     return render_template("level_select.html")
 
+@app.route("/bug_crime2")
+def bug_crime2():
+    return render_template("Burglary/crime_scene2.html")
+
+@app.route("/bug_interrogate")
+def bug_int():
+    return render_template("Burglary/interrogation.html")
+
 @app.route("/file")
 def file():
     return render_template("file_template.html")

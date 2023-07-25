@@ -21,10 +21,12 @@ def bug_crime_1():
 @app.route("/hom")
 def homicide():
     return render_template("Homicide/homicide.html")
-
 @app.route("/hom/crime_scene_1")
 def hom_crime_1():
     return render_template("Homicide/crime_scene_1.html")
+@app.route("/hom/hom_listen_1")
+def hom_listen_1():
+    return render_template("Homicide/listen_1.html")
 
 @app.route("/cyber")
 def Cyber_crime():

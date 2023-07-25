@@ -27,7 +27,6 @@ class Script{
 // let current_node = root;
 
 function node_tracker(node){
-    console.log(node);
     // allows messages to be displayed after choposing button by resetting the message_index
     if (current_node != node){
         message_index = 0;
@@ -40,7 +39,6 @@ function node_tracker(node){
         display_script(node.script_list);
         return;
     }
-    console.log("Reached the end");
 }
 
 let message_index = 0;
@@ -71,6 +69,9 @@ function display_script(dialogue){
         if (id1 != null && id2 != null){
             button_reveal(id1, id2);
         }
+        else {
+            reveal_continue();
+        }    
     }
 }
 
@@ -92,4 +93,9 @@ function button_hide(id1, id2){
 
 function scroll_talk_box_bottom() {
     message_container.scrollTop = message_container.scrollHeight;
+}
+
+function reveal_continue(){
+    const button_continue = document.querySelector('#continue');
+    button_continue.style.display = 'block';
 }

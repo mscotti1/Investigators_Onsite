@@ -59,6 +59,8 @@ function changeImage() {
     const ev5 = document.querySelector('#ev5');
     const ev6 = document.querySelector('#ev6');
 
+    console.log(ev6.getAttribute('class'))
+
 
     if (display_1 == true) {
         image1.style.display = 'block';
@@ -70,8 +72,13 @@ function changeImage() {
         button_down.style.display = 'none';
         button_left.style.display = 'none';
 
-        ev1.style.display = 'block';
-        ev2.style.display = 'block';
+
+        if (ev1.getAttribute('class') != 'hidden'){
+            ev1.style.display = 'block';
+        }
+        if (ev2.getAttribute('class') != 'hidden'){
+            ev2.style.display = 'block';
+        }
         ev3.style.display = 'none';
         ev4.style.display = 'none';
         ev5.style.display = 'none';
@@ -90,8 +97,13 @@ function changeImage() {
 
         ev1.style.display = 'none';
         ev2.style.display = 'none';
-        ev3.style.display = 'block';
-        ev4.style.display = 'block';
+
+        if (ev3.getAttribute('class') != 'hidden'){
+            ev3.style.display = 'block';
+        }
+        if (ev4.getAttribute('class') != 'hidden'){
+            ev4.style.display = 'block';
+        }
         ev5.style.display = 'none';
         ev6.style.display = 'none';
     }
@@ -109,8 +121,13 @@ function changeImage() {
         ev2.style.display = 'none';
         ev3.style.display = 'none';
         ev4.style.display = 'none';
-        ev5.style.display = 'block';
-        ev6.style.display = 'block';
+
+        if (ev5.getAttribute('class') != 'hidden'){
+            ev5.style.display = 'block';
+        }
+        if (ev6.getAttribute('class') != 'hidden'){
+            ev6.style.display = 'block';
+        }
     }
 }
 

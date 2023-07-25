@@ -46,14 +46,14 @@ def crime_scene():
 def level_select():
     return render_template("level_select.html")
 
-@app.route("/process_zip", methods = "POST")
-def process_zip():
-    pass
-    # read from a form that Maymouna sends to this route 
-    # call function from api.py and pass in zipcode
-    # switch or if else to decide which route to redirect to
-    # pass in result from function to redirect
-    # return redirect_url()
+# @app.route("/process_zip", methods = "POST")
+# def process_zip():
+#     pass
+#     # read from a form that Maymouna sends to this route 
+#     # call function from api.py and pass in zipcode
+#     # switch or if else to decide which route to redirect to
+#     # pass in result from function to redirect
+#     # return redirect_url()
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

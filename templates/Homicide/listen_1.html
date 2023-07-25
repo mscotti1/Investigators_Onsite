@@ -6,14 +6,32 @@
     </title>
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='listen_temp.css')}}">
+
 </head>
 <body>
     <div class="listen-screen">
         <img src="{{url_for('static', filename='images/random_interrogate.jpg')}}" alt="Game Image" width="100%" height="515">
     </div>
-    <div class="text-box" onclick="changeText(dialogue_sample)">
-        Click box to see conversation.
+    <div class="text-box" onclick="changeText(dialogue)">
+        Currently Ronald Faraday is being interrogated by Officer Hazard. Click box to see conversation.
     </div>
+    <a href = "{{url_for('hom_interrogate_1')}}">
+        <button id="continue">
+            Continue 
+        </button>
+    </a>
     <script src="{{url_for('static', filename='listen_temp.js')}}"></script>
+    <script>
+        dialogue = [
+        "<span class='blue-text'>Officer Hazard:</span> You first exclaimed “My wife killed herself!” in your 911 call, but she has clearly been stabbed several times. Was that just the best excuse you could come up with at the time?", 
+        "<span class ='red-text'>Ronald Faraday:</span> No. I - I couldn't see the stab wounds on her stomach they were covered by her clothes-",
+        "<span class='blue-text'>Officer Hazard:</span> And my men have informed me you've been awfully calm for a man who just lost his wife.",
+        "<span class ='red-text'>Ronald Faraday:</span> I didn't do this. I had just gotten home when…when I found her on the ground.",
+        "<span class='blue-text'>Officer Hazard:</span> And yet you were certain that she killed herself?",
+        "<span class ='red-text'>Ronald Faraday:</span> It doesn't matter-",
+        "<span class='blue-text'>Officer Hazard:</span> Oh, I'm pretty sure it does matter sir.",
+        "<span class='green-text'>Detective Reed:</span> I think you're being too tough on the guy, why don't I take it from here?",
+        ]
+    </script>
 </body>
 </html>

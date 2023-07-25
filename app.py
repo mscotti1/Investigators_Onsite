@@ -27,6 +27,9 @@ def hom_crime_1():
 @app.route("/hom/hom_listen_1")
 def hom_listen_1():
     return render_template("Homicide/listen_1.html")
+@app.route("/hom/hom_interrogate_1")
+def hom_interrogate_1():
+    return render_template("Homicide/interrogate_1.html")
 
 @app.route("/cyber")
 def Cyber_crime():

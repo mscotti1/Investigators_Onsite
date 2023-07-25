@@ -1,0 +1,135 @@
+.crime-screen {
+    margin-top: 3% ;
+    margin-bottom: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 87%;
+    height: 50%;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.info-box {
+    background-color: #65799B; 
+    padding: 1.5%;
+    height: 10%;
+    max-width: 55%;
+    text-align: left;
+    border-radius: 5px;
+    border: 2px solid #A5C9CA;
+    margin: auto;
+    resize : None;
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+#up {
+    position: absolute;
+    top: 75px;
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 20px;
+    display: block;
+}
+#right {
+    position: absolute;
+    right: 150px;
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 20px;
+    display: block;
+}
+#down{
+    position: absolute;
+    bottom: 300px;
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 20px;
+    display: none;
+}
+#left {
+    position: absolute;
+    left: 150px;
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1;
+    font-size: 20px;
+    display: none;
+}
+#up:hover {
+    cursor: pointer;
+}
+
+#ev1{
+    position: absolute;
+    left: 300px;
+    cursor: pointer;
+    display: block;
+}
+#ev2{
+    position: absolute;
+    right: 300px;
+    cursor: pointer;
+    display: block;
+}
+#ev3{
+    position: absolute;
+    left: 300px;
+    cursor: pointer;
+    display: none;
+}
+#ev4{
+    position: absolute;
+    right: 300px;
+    cursor: pointer;
+    display: none;
+}
+#ev5{
+    position: absolute;
+    left: 300px;
+    cursor: pointer;
+    display: none;
+}
+#ev6{
+    position: absolute;
+    right: 300px;
+    cursor: pointer;
+    display: none;
+}
+
+#continue{
+    background-color: #1864f3;
+    padding: 10px;
+    border-radius: 10px;
+    position: absolute;
+    right: 100px;
+    bottom: 175px;
+    color: rgb(238, 233, 233);
+    display: none;
+}
+#continue:hover{
+    background-color: #a50000;
+    cursor: pointer;
+}

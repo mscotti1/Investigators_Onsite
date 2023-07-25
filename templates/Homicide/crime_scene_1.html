@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Crime Scene - Investigators Onsite
+    </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='crime_scene_temp.css')}}">
+    <style>
+        #ev1{
+            position: absolute;
+            left: 300px;
+            cursor: pointer;
+            display: block;
+        }
+        #ev2{
+            position: absolute;
+            right: 300px;
+            cursor: pointer;
+            display: block;
+        }
+        #ev3{
+            position: absolute;
+            left: 300px;
+            cursor: pointer;
+            display: none;
+        }
+        #ev4{
+            position: absolute;
+            right: 300px;
+            cursor: pointer;
+            display: none;
+        }
+        #ev5{
+            position: absolute;
+            left: 300px;
+            cursor: pointer;
+            display: none;
+        }
+        #ev6{
+            position: absolute;
+            right: 300px;
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+    <body>
+        <div class="crime-screen">
+            <img src="{{url_for('static', filename='images/hallway_dark.jpeg')}}" alt="Game Image1" id="image1" width="100%" height="515">
+            <img src="{{url_for('static', filename='images/kitchen_dark.jpeg')}}" alt="Game Image2" id="image2" style="display:none;" width="100%" height="515">
+            <img src="{{url_for('static', filename='images/bedroom_dark.jpeg')}}" alt="Game Image3" id="image3" style="display:none;" width="100%" height="515">
+
+            <button id="up" onclick="display_image_3()"> ^ </button>
+            <button id="right" onclick="display_image_2()"> >> </button>
+            <button id="down" onclick="display_image_1()"> v </button>
+            <button id="left" onclick="display_image_1()"> << </button>
+
+            <button id="ev1" onclick="display_info(ev1)">
+                <img src = "{{url_for('static', filename='/images/body_outline.jpeg')}}" alt="evidence_1" width="100px" height="100px">
+            </button>
+            <button id="ev2" onclick="display_info(ev2)">
+                <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_2" width="100px" height="100px">
+            </button>
+
+            <button id="ev3" onclick="display_info(ev3)" class="hidden">
+                <img src = "{{url_for('static', filename='images/body_outline.jpeg')}}" alt="evidence_3" width="100px" height="100px">
+            </button>
+            <button id="ev4" onclick="display_info(ev4)">
+                <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_4" width="100px" height="100px">
+            </button>
+
+            <button id="ev5" onclick="display_info(ev5)">
+                <img src = "{{url_for('static', filename='images/body_outline.jpeg')}}" alt="evidence_5" width="100px" height="100px">
+            </button>
+            <button id="ev6" onclick="display_info(ev6)" class="hidden">
+                <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_6" width="100px" height="100px">
+            </button>
+
+        </div>
+        <div class="info-box">
+            Click on evidence to get more information.
+        </div>
+        <button id="continue">
+            Continue
+        </button>
+    <script src="{{url_for('static', filename='main.js')}}"></script>
+    <script src="{{url_for('static', filename='crime_scene_temp.js')}}"></script>
+    <script>
+        found_5 = true;
+        found_6 = true;
+        let info_list = [
+            "Becky Faraday's body was found here. She had been stabbed a total of 55 times. Reports conclude that Becky Faraday's wrists weren't just slashed. The knife had been driven all the way to the bone. It had sliced into her skull, plunged into her left eye, and lacerated her throat, bursting the right carotid artery.", 
+            "Officers reported an invisible trail of blood that was made visible using Bluestar (a blood reagent that makes blood trails/remains visible to the human eye) here. The trail goes from the kitchen, into the hallway, and points up the stairs towards the bedroom.", 
+            "",
+            "Ronald Faraday's bloody slippers. These slippers have Becky's blood on them. This evidence is clearly poorly hidden.",
+            "Detective Reed: Excuse me officer. Do you have any information on Mr.Faraday's whereabouts tonight that you can share with me?\n Officer Johnson: Yea. Here's a copt of the flashdrive with security camera footage from two gas stations. You can see Ronald Faraday in a bright orange I Love Rhode Island T-Shirt at those gas stations. \n Detective Reed: So he stopped by 2 gads stations huh? Okay, thanks for the help.",
+        ];
+    </script>
+
+</body>
+</html>

@@ -14,13 +14,17 @@ def statistics():
 def burglary():
     return render_template("Burglary/Burglary.html")
 
-@app.route('/bug_crime_scene_1')
+@app.route('/bug/crime_scene_1')
 def bug_crime_1():
     return render_template("Burglary/crime_scene_1.html")
 
 @app.route("/hom")
 def homicide():
     return render_template("Homicide/homicide.html")
+
+@app.route("/hom/crime_scene_1")
+def hom_crime_1():
+    return render_template("Homicide/crime_scene_1.html")
 
 @app.route("/cyber")
 def Cyber_crime():
@@ -50,6 +54,20 @@ def cyber_crime_scene():
 def level_select():
     return render_template("level_select.html")
 
+@app.route("/file")
+def file():
+    return render_template("file_template.html")
+
+
+
+# @app.route("/process_zip", methods = "POST")
+# def process_zip():
+#     pass
+#     # read from a form that Maymouna sends to this route 
+#     # call function from api.py and pass in zipcode
+#     # switch or if else to decide which route to redirect to
+#     # pass in result from function to redirect
+#     # return redirect_url()
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

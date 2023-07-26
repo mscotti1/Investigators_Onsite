@@ -3,7 +3,7 @@ from api import api_function
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def home():
     return render_template("index.html")
 
@@ -113,16 +113,23 @@ def process_zip():
     print(zipcode)
     print("Your case is: ",choice)
     # switch or if else to decide which route to redirect to
+    choice_route = ""
+
     if choice == "central":
-        return redirect("/central")
+        # return redirect("/central")
+        choice_route = "/central"
     elif choice == "homicide":
-        return redirect("/hom/file")
+        # return redirect("/hom/file")
+        choice_route = "/hom/file"
     elif choice == "burglary":
-        return redirect("/file")
+        # return redirect("/file")
+        choice_route = "/file"
     elif choice == "cyber":
         print("We made it")
-        # return redirect("/cyber_scene")
-        return "stringy"
+        # return redirect(url_for('statistics'), code="303")
+        choice_route = "/cyber_scene"
+        # return "stringy"
+    return {'key': choice_route}
     # pass in result from function to redirect
     # return redirect_url()
 

@@ -66,8 +66,7 @@
                                 <p id="zipcode"></p>
                                 <!-- <p>Some text in the Modal..</p> -->
                             </form>
-                        </div>
-
+                        </div> 
                     </div>
                 </div>
             <div class="image">
@@ -93,19 +92,19 @@
         .then(function(response) {
           // This right here is the response we will receive before we convert
           // it over to readable JSON
-          console.log("Response turning to readable JSON", response);
-        //   return response.json();
-          return response
+            console.log("Response turning to readable JSON", response);
+          return response.json();
+            // return response
         })
         .then(function(response) {
           // Don't worry if this says "false", it just returns that when the user already exists from flasks end
           // Once it reaches here, the async is already successful
-        //   console.log("Successful async: ", JSON.stringify(response));
-          console.log(response)
-          window.location.replace("/hom/crime_scene_1")
+          console.log("Successful async: ", JSON.stringify(response));
+            console.log(response['key'])
+            window.location.replace(response['key'])
         })
         .catch(function(error) {
-          console.log("Error in async", error);
+            console.log("Error in async", error);
         });
         document.getElementById("zipcode").innerHTML = "Success! Your inputted zipcode is " + x + ".";
     }

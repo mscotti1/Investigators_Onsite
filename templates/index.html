@@ -81,6 +81,12 @@
     // Here the value is stored in new variable x 
     function myFunction() {
         var x = document.getElementById("myText").value;
+        let formData = new FormData();
+        formData.append("zipcode", x);
+        fetch("/api", {
+        method: "POST",
+        body: formData
+        })
         document.getElementById("zipcode").innerHTML = "Success! Your inputted zipcode is " + x + ".";
     }
 

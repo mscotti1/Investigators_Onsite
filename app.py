@@ -95,6 +95,21 @@ def bug_int():
 def file():
     return render_template("file_template.html")
 
+@app.route("/api", methods=["POST"])
+def test():
+    # print("working")
+    zipcode = request.form.get('zipcode')
+    print(zipcode)
+    return "hello"
+ 
+# @app.route("/process_zip", methods = "POST")
+# def process_zip():
+#     pass
+#     # read from a form that Maymouna sends to this route 
+#     # call function from api.py and pass in zipcode
+#     # switch or if else to decide which route to redirect to
+#     # pass in result from function to redirect
+#     # return redirect_url()
 
 @app.route("/process_zip", methods = ["GET"])
 def process_zip():
@@ -113,6 +128,7 @@ def process_zip():
         return redirect("/cyber_scene")
     # pass in result from function to redirect
     # return redirect_url()
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

@@ -34,7 +34,11 @@
             </div>
         </div>
     </div>
-
+        <a href = "{{url_for('cyber_crime_scene')}}">
+        <button id="continue">
+            Continue 
+        </button>
+    </a>
     <script src="{{url_for('static', filename='interactive_temp.js')}}"></script>
  <script>
         const dialogue_start = [
@@ -73,13 +77,13 @@
         ];
 
         const left_dia_2_02 = [
-            { sender: 'said', text: "Do you have anything else to say?" },
-            { sender: 'heard', text: "Taking responsibility is the right step" }
+            { sender: 'said', text: "How did you transfer the stolen money without getting caught?" },
+            { sender: 'heard', text: "Yes, I used a custom-made malware. It was undetectable by most antivirus programs" }
         ];
 
         const left_dia_2_01 = [
             { sender: 'said', text: "Did you use a specific malware to breach the bank's systems?" },
-            { sender: 'heard', text: "Taking responsibility is the right step" }
+            { sender: 'heard', text: "Yes, I used a custom-made malware. It was undetectable by most antivirus programs" }
         ];
 
         

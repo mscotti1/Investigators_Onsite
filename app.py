@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, redirect
+from flask import Flask, render_template, request, jsonify, redirect, url_for
 from api import api_function
 
 app = Flask(__name__)
@@ -95,28 +95,23 @@ def bug_int():
 def file():
     return render_template("file_template.html")
 
-@app.route("/api", methods=["POST"])
-def test():
+# @app.route("/api", methods=["POST"])
+# def test():
     # print("working")
-    zipcode = request.form.get('zipcode')
-    print(zipcode)
-    return "hello"
- 
-# @app.route("/process_zip", methods = "POST")
-# def process_zip():
-#     pass
-#     # read from a form that Maymouna sends to this route 
-#     # call function from api.py and pass in zipcode
-#     # switch or if else to decide which route to redirect to
-#     # pass in result from function to redirect
-#     # return redirect_url()
+    # zipcode = request.form.get('zipcode')
+    # print(zipcode)
+    # process_zip(zipcode)
+    # return "hello"
 
-@app.route("/process_zip", methods = ["GET"])
+@app.route("/process_zip", methods = ["POST"])
 def process_zip():
-    zipcode = "11234"
+    # zipcode = "11234"
     # read from a form that Maymouna sends to this route 
     # call function from api.py and pass in zipcode
+    zipcode = request.form.get('zipcode')
     choice = api_function(zipcode)
+    print(zipcode)
+    print("Your case is: ",choice)
     # switch or if else to decide which route to redirect to
     if choice == "central":
         return redirect("/central")
@@ -125,7 +120,9 @@ def process_zip():
     elif choice == "burglary":
         return redirect("/file")
     elif choice == "cyber":
-        return redirect("/cyber_scene")
+        print("We made it")
+        # return redirect("/cyber_scene")
+        return "stringy"
     # pass in result from function to redirect
     # return redirect_url()
 

@@ -59,11 +59,13 @@
                     <div id="myModal" class="modal">
                         <!-- Modal content -->
                         <div class="modal-content">
-                            <span class="close">&times;</span>
-                            Input your zip code: <input type="text" id="myText" placeholder="Enter your zipcode">
-                            <button type="button" onclick="myFunction()">Submit</button>
-                            <p id="zipcode"></p>
-                            <!-- <p>Some text in the Modal..</p> -->
+                            <form action="/">
+                                <span class="close">&times;</span>
+                                Input your zip code: <input type="text" id="myText" placeholder="Enter your zipcode">
+                                <button type="submit">Submit</button>
+                                <p id="zipcode"></p>
+                                <!-- <p>Some text in the Modal..</p> -->
+                            </form>
                         </div>
 
                     </div>
@@ -79,14 +81,32 @@
 
 <script>
     // Here the value is stored in new variable x 
-    function myFunction() {
+    document.querySelector("form").onsubmit = function(e) {
+        e.preventDefault();
         var x = document.getElementById("myText").value;
         let formData = new FormData();
         formData.append("zipcode", x);
-        fetch("/api", {
+        fetch("/process_zip", {
         method: "POST",
         body: formData
         })
+        .then(function(response) {
+          // This right here is the response we will receive before we convert
+          // it over to readable JSON
+          console.log("Response turning to readable JSON", response);
+        //   return response.json();
+          return response
+        })
+        .then(function(response) {
+          // Don't worry if this says "false", it just returns that when the user already exists from flasks end
+          // Once it reaches here, the async is already successful
+        //   console.log("Successful async: ", JSON.stringify(response));
+          console.log(response)
+          window.location.replace("/hom/crime_scene_1")
+        })
+        .catch(function(error) {
+          console.log("Error in async", error);
+        });
         document.getElementById("zipcode").innerHTML = "Success! Your inputted zipcode is " + x + ".";
     }
 

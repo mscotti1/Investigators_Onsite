@@ -72,17 +72,32 @@
             { sender: 'heard', text: "Taking responsibility is the right step" }
         ];
 
-        const right_1_02 = new Script(right_dia_1_02, null,null, null, null);
-        const right_1_01 = new Script(right_dia_1_01, null, null, null, null);
+        const left_dia_2_02 = [
+            { sender: 'said', text: "Do you have anything else to say?" },
+            { sender: 'heard', text: "Taking responsibility is the right step" }
+        ];
 
-        const left_1_02 = new Script(left_dia_1_02, null, null, null, null);
-        const left_1_01 = new Script(left_dia_1_01, null, null, null, null);
+        const left_dia_2_01 = [
+            { sender: 'said', text: "Did you use a specific malware to breach the bank's systems?" },
+            { sender: 'heard', text: "Taking responsibility is the right step" }
+        ];
+
+        
+        const left_2_02 = new Script(left_dia_2_02, null, null, null, null);
+        const left_2_01 = new Script(left_dia_2_01, null, null, null, null);
+
+        const right_1_02 = new Script(right_dia_1_02, left_2_01,left_2_02, "#option_R2_1", "#option_R2_2");
+        const right_1_01 = new Script(right_dia_1_01, left_2_01, left_2_02,"#option_R2_1", "#option_R2_2");
+
+        const left_1_02 = new Script(left_dia_1_02, left_2_02, left_2_02, "#option_R2_1", "#option_R2_2");
+        const left_1_01 = new Script(left_dia_1_01, left_2_01, left_2_02, "#option_R2_1", "#option_R2_2");
 
         const right_1 = new Script(right_dia_1, right_1_01, right_1_02, "#option_R1_1", "#option_R1_2");
         const left_1 = new Script(left_dia_1, left_1_01, left_1_02, "#option_L1_1", "#option_L1_2");
 
-        const root = new Script(dialogue_start, left_1, right_1, '#option_L0_1', 'option_R0_1');
         const left_2 = new Script(left_dia_1, left_1_01, left_1_02, "#option_R2_1", "#option_R2_2");
+
+        const root = new Script(dialogue_start, left_1, right_1, '#option_L0_1', 'option_R0_1');
 
         let current_node = root;
     </script>

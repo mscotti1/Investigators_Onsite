@@ -7,10 +7,32 @@ engine = db.create_engine('sqlite:///stats.db')
 metadata = db.MetaData()
 # schema of table
 stats_data = db.Table("stats_data", metadata,
-                db.Column("Violent Crime Rate", db.Float),
-                db.Column("Other Crime Rate", db.Float),
-                db.Column("Property Crime Rate", db.Float))
-                # db.Row("ZipCode", db.String(5))
+                db.Column("ZipCode", db.String(5)),
+                db.Column("Overall Crime Grade", db.Float),
+                db.Column("Violent Crime Grade", db.Float),
+                db.Column("Property Crime Grade", db.Float),
+                db.Column("Other Crime Grade", db.Float),
+                db.Column("Fact", db.Float),
+                db.Column("Risk Detail", db.Float),
+
+                db.Column("Total Violent Crime Rate", db.Float),
+                db.Column("Assault Crime Rate", db.Float),
+                db.Column("Robbery Crime Rate", db.Float),
+                db.Column("Rape Crime Rate", db.Float),
+                db.Column("Murder Crime Rate", db.Float),
+
+                db.Column("Total Property Crime Rate", db.Float),
+                db.Column("Theft Crime Rate", db.Float),
+                db.Column("Vehicle Theft Crime Rate", db.Float),
+                db.Column("Burglary Crime Rate", db.Float),
+                db.Column("Arson Crime Rate", db.Float),
+
+                db.Column("Total Other Crime Rate", db.Float),
+                db.Column("Kidnapping Crime Rate", db.Float),
+                db.Column("Drug Crime Rate", db.Float),
+                db.Column("Vandalism Crime Rate", db.Float),
+                db.Column("Identity Theft Crime Rate", db.Float),
+                db.Column("Animal Cruelty Crime Rate", db.Float))
 # creates all tables associated with metadata
 metadata.create_all(engine)
 

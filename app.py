@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
+from api import api_function
 
 app = Flask(__name__)
 
@@ -21,17 +22,30 @@ def bug_crime_1():
 @app.route("/hom")
 def homicide():
     return render_template("Homicide/homicide.html")
-
+@app.route("/hom/file")
+def hom_file():
+    return render_template("Homicide/file.html")
 @app.route("/hom/crime_scene_1")
 def hom_crime_1():
     return render_template("Homicide/crime_scene_1.html")
-
-@app.route("/hom/hom_listen_1")
+@app.route("/hom/isten_1")
 def hom_listen_1():
     return render_template("Homicide/listen_1.html")
-@app.route("/hom/hom_interrogate_1")
+@app.route("/hom/interrogate_1")
 def hom_interrogate_1():
     return render_template("Homicide/interrogate_1.html")
+@app.route("/hom/court_1")
+def hom_court_1():
+    return render_template("Homicide/court_1.html")
+@app.route("/hom/crime_scene_2")
+def hom_crime_2():
+    return render_template("Homicide/crime_scene_2.html")
+@app.route("/hom/interrogate_2")
+def hom_interrogate_2():
+    return render_template("Homicide/interrogate_2.html")
+@app.route("/hom/court_2")
+def hom_court_2():
+    return render_template("Homicide/court_2.html")
 
 @app.route("/cyber")
 def Cyber_crime():
@@ -82,15 +96,23 @@ def file():
     return render_template("file_template.html")
 
 
-
-# @app.route("/process_zip", methods = "POST")
-# def process_zip():
-#     pass
-#     # read from a form that Maymouna sends to this route 
-#     # call function from api.py and pass in zipcode
-#     # switch or if else to decide which route to redirect to
-#     # pass in result from function to redirect
-#     # return redirect_url()
+@app.route("/process_zip", methods = ["GET"])
+def process_zip():
+    zipcode = "11234"
+    # read from a form that Maymouna sends to this route 
+    # call function from api.py and pass in zipcode
+    choice = api_function(zipcode)
+    # switch or if else to decide which route to redirect to
+    if choice == "central":
+        return redirect("/central")
+    elif choice == "homicide":
+        return redirect("/hom/file")
+    elif choice == "burglary":
+        return redirect("/file")
+    elif choice == "cyber":
+        return redirect("/cyber_scene")
+    # pass in result from function to redirect
+    # return redirect_url()
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

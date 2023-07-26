@@ -1,4 +1,19 @@
 import requests
+import sqlalchemy as db
+
+# creates database if it does not already exist
+engine = db.create_engine('sqlite:///stats.db')
+# tracks all tables
+metadata = db.MetaData()
+# schema of table
+stats_data = db.Table("stats_data", metadata,
+                db.Column("Violent Crime Rate", db.Float),
+                db.Column("Other Crime Rate", db.Float),
+                db.Column("Property Crime Rate", db.Float)
+                db.Row("ZipCode", db.String(5))
+# creates all tables associated with metadata
+metadata.create_all(engine)
+
 url = 'https://zylalabs.com/api/824/crime+data+by+zipcode+api/583/get+crime+rates+by+zip'
 headers = {'Authorization': 'Bearer 1723|9t0K2GR1PxMpsCefgBiK2IJBkwiBNyyCsT7KTuVi'}
 # zipcode = input("practice: ")
@@ -32,7 +47,15 @@ def api_function(zipcode):
 
             list = [central, pam, roof, cyber]
             choice = max(list)
-            print(choice)
+
+            if choice == central:
+                return "central"
+            elif choice == pam:
+                return "homicide"
+            elif choice == roof:
+                return "burglary"
+            elif choice == cyber:
+                return "cyber"
             
         else:
             print(f"Error: {response.status_code}")
@@ -40,7 +63,7 @@ def api_function(zipcode):
     else:
         zipcode = input("please put valid zipcode: ")
 
-api_function("52342")
+# api_function("52342")
 # Central: "Assault", "Rape", "Kidnapping"
 # Homicide: "Murder", "Animal Cruelty"
 # Roof-Man: "Burglary", "Arson", "Vehicle Theft", "Theft", "Robbery", "Vandalism"

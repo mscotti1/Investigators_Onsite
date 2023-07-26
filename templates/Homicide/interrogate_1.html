@@ -24,7 +24,7 @@
                 <button class="option-button" id='option_L0_1' onclick="node_tracker(current_node.left_opt)"> You are going to jail</button>
                 <button class="option-button" id='option_R0_1' onclick="node_tracker(current_node.right_opt)">I understand ;)</button>
                 
-                <button class="option-button" id='option_L1_1' onclick="node_tracker(current_node.left_opt)"> Left more 1</button>
+                <button class="option-button" id='option_L1_1' onclick="node_tracker(current_node.left_opt); set_end(0)"> Left more 1</button>
                 <button class="option-button" id='option_L1_2' onclick="node_tracker(current_node.right_opt)">Left more 2</button>
 
                 <button class="option-button" id='option_R1_1' onclick="node_tracker(current_node.left_opt)"> Right more 1</button>
@@ -32,9 +32,13 @@
             </div>
         </div>
     </div>
-    <a href = "{{url_for('hom_crime_1')}}">
-    <!-- <a href = "{{url_for('hom_court_1')}}"> -->
-        <button id="continue">
+    <a href = "{{url_for('homicide')}}">
+        <button id="continue0" class="continue">
+            Continue 
+        </button>
+    </a>
+    <a href = "{{url_for('hom_court_1')}}">
+        <button id="continue1" class="continue">
             Continue 
         </button>
     </a>
@@ -106,6 +110,9 @@
         const root = new Script(dialogue_start, left_1, right_1, '#option_L0_1', '#option_R0_1');
 
         let current_node = root;
+
+        
+        
     </script>
     
 </body>

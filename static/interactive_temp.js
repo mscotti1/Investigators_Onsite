@@ -43,6 +43,16 @@ function node_tracker(node){
 
 let message_index = 0;
 
+let ending = 1
+function set_end(end){
+    if (end == 0){
+        ending = 0;
+        console.log(ending)
+        return;
+    }
+    ending = 1;
+}
+
 function display_script(dialogue){
     document.getElementById('start').innerHTML = "";
     if (message_index < dialogue.length){
@@ -70,7 +80,7 @@ function display_script(dialogue){
             button_reveal(id1, id2);
         }
         else {
-            reveal_continue();
+            reveal_continue(ending);
         }    
     }
 }
@@ -95,7 +105,18 @@ function scroll_talk_box_bottom() {
     message_container.scrollTop = message_container.scrollHeight;
 }
 
-function reveal_continue(){
-    const button_continue = document.querySelector('#continue');
+// function reveal_continue(){
+//     const button_continue = document.querySelector('#continue');
+//     button_continue.style.display = 'block';
+// }
+function reveal_continue(ending){
+    console.log(ending)
+    if (ending == 0)
+    {
+        const button_continue = document.querySelector('#continue0');
+        button_continue.style.display = 'block';
+        return;
+    }
+    const button_continue = document.querySelector('#continue1');
     button_continue.style.display = 'block';
 }

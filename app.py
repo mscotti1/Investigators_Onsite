@@ -18,14 +18,14 @@ def burglary():
 @app.route('/bug/crime_scene_1')
 def bug_crime_1():
     return render_template("Burglary/crime_scene_1.html")
-
+##### HOMICIDE ROUTES #####
 @app.route("/hom")
 def homicide():
     return render_template("Homicide/homicide.html")
 @app.route("/hom/file")
 def hom_file():
     return render_template("Homicide/file.html")
-@app.route("/hom/crime_scene_1")
+@app.route("/hom/crime_1")
 def hom_crime_1():
     return render_template("Homicide/crime_scene_1.html")
 @app.route("/hom/listen_1")
@@ -37,15 +37,22 @@ def hom_interrogate_1():
 @app.route("/hom/court_1")
 def hom_court_1():
     return render_template("Homicide/court_1.html")
-@app.route("/hom/crime_scene_2")
-def hom_crime_2():
-    return render_template("Homicide/crime_scene_2.html")
+@app.route("/hom/file_2")
+def hom_file_2():
+    return render_template("Homicide/file_2.html")
+@app.route("/hom/listen_2")
+def hom_listen_2():
+    return render_template("Homicide/listen_2.html")
 @app.route("/hom/interrogate_2")
 def hom_interrogate_2():
     return render_template("Homicide/interrogate_2.html")
 @app.route("/hom/court_2")
 def hom_court_2():
     return render_template("Homicide/court_2.html")
+#####################################################
+@app.route("/hom/crime_2")
+def hom_crime_2():
+    return render_template("Homicide/crime_scene_2.html")
 
 @app.route("/cyber")
 def Cyber_crime():

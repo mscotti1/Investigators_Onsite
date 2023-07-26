@@ -28,7 +28,7 @@ def hom_file():
 @app.route("/hom/crime_scene_1")
 def hom_crime_1():
     return render_template("Homicide/crime_scene_1.html")
-@app.route("/hom/isten_1")
+@app.route("/hom/listen_1")
 def hom_listen_1():
     return render_template("Homicide/listen_1.html")
 @app.route("/hom/interrogate_1")
@@ -116,19 +116,14 @@ def process_zip():
     choice_route = ""
 
     if choice == "central":
-        # return redirect("/central")
         choice_route = "/central"
     elif choice == "homicide":
-        # return redirect("/hom/file")
         choice_route = "/hom/file"
     elif choice == "burglary":
-        # return redirect("/file")
         choice_route = "/file"
     elif choice == "cyber":
         print("We made it")
-        # return redirect(url_for('statistics'), code="303")
         choice_route = "/cyber_scene"
-        # return "stringy"
     return {'key': choice_route}
     # pass in result from function to redirect
     # return redirect_url()

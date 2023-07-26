@@ -71,8 +71,13 @@ def bug_int():
 def file():
     return render_template("file_template.html")
 
-
-
+@app.route("/api", methods=["POST"])
+def test():
+    # print("working")
+    zipcode = request.form.get('zipcode')
+    print(zipcode)
+    return "hello"
+ 
 # @app.route("/process_zip", methods = "POST")
 # def process_zip():
 #     pass

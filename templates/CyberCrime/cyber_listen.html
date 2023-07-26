@@ -11,9 +11,29 @@
     <div class="listen-screen">
         <img src="{{url_for('static', filename='images/random_interrogate.jpg')}}" alt="Game Image" width="100%" height="515">
     </div>
-    <div class="text-box" onclick="changeText(dialogue_sample)">
+    <div class="text-box" onclick="changeText(dialogue)">
         Click box to see conversation.
     </div>
     <script src="{{url_for('static', filename='listen_temp.js')}}"></script>
+
+     <script>
+        dialogue = [
+        "<span class='blue-text'>Detective Reid:</span> (Enters the interrogation room and sits across from the suspect) Good morning. My name is Detective Reid, and I'm heading the investigation into the Carbanak cybercrime. For the record, could you please state your name?", 
+        "<span class ='red-text'>Alex Martin:</span> (Nervously) I... I'm Alex Martin.",
+        "<span class='blue-text'>Detective Reid:</span> Thank you, Mr. Martin. We have evidence linking you to the Carbanak bank heist, a highly sophisticated cybercrime operation that has affected numerous financial institutions. We know it was a well-coordinated attack involving advanced malware and intricate tactics. Can you tell us anything about your involvement in this?",
+        "<span class ='red-text'>Alex Martin:</span> (Pauses, then hesitantly speaks) I... I don't know what you're talking about. I have nothing to do with any bank heist",
+        "<span class='blue-text'>Detective Reid:</span> Mr. Martin, we have records showing suspicious transactions traced back to your online identity. The digital footprints point directly to your involvement. It's in your best interest to be honest with us",
+        "<span class ='red-text'>Alex Martin:</span> (Sweating profusely) Look, I might have stumbled upon some files and information online, but I swear, I didn't know what they were for. I never intended to use them for anything illegal",
+        "<span class='blue-text'>Detective Reid:</span> So, you're saying you accidentally came across sensitive files related to the Carbanak operation?",
+        "<span class='red-text'>Alex Martin:</span> Yes, that's what happened. I never thought they would be linked to a bank heist. I was just curious and didn't think it would hurt anyone.",
+        "<span class='blue-text'>Detective Reid:</span>(Nods) Curiosity can lead us to places we never imagined, Mr. Martin. But understand that the Carbanak heist resulted in massive financial losses and affected thousands of people. We need to know who else might have been involved, and we need your full cooperation",
+        "<span class='red-text'>Alex Martin:</span> (Looks worried) I swear, I don't know anyone else involved. I was never in direct contact with anyone. I just found some files online and explored them out of curiosity",
+        "<span class='blue-text'>Detective Reid:</span>Investigator: (Gently but firmly) It's crucial that you provide us with any information you have, even if you believe it's insignificant. It might help us trace the real culprits and bring them to justice",
+        "<span class='red-text'>Alex Martin:</span> (Sighs) Okay, okay, I'll tell you everything I remember, but I need some protection. I fear for my safety if others find out I cooperated",
+        "<span class='blue-text'>Detective Reid:</span> We can discuss witness protection options if necessary. Your safety is important, but the truth is equally vital in solving this case. Let's work together to uncover the full picture",
+        ]
+    </script>
+</body>
+</html>
 </body>
 </html>

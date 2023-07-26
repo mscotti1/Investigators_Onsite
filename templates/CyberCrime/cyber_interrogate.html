@@ -20,18 +20,72 @@
                 </div>
             </div>
             <div class="button-container">
-                <button class="option-button" id='option_L0_1' onclick="node_tracker(current_node.left_opt)"> You are going to jail</button>
-                <button class="option-button" id='option_R0_1' onclick="node_tracker(current_node.right_opt)">I understand ;)</button>
+                <button class="option-button" id='option_L0_1' onclick="node_tracker(current_node.left_opt)"> Did you work alone or with accomplices?</button>
+                <button class="option-button" id='option_R0_1' onclick="node_tracker(current_node.right_opt)">Can you tell us how you gained access to the banks' systems?</button>
                 
-                <button class="option-button" id='option_L1_1' onclick="node_tracker(current_node.left_opt)"> Left more 1</button>
-                <button class="option-button" id='option_L1_2' onclick="node_tracker(current_node.right_opt)">Left more 2</button>
+                <button class="option-button" id='option_L1_1' onclick="node_tracker(current_node.left_opt)"> How much money did you steal in total?</button>
+                <button class="option-button" id='option_L1_2' onclick="node_tracker(current_node.right_opt)">Were you approached by anyone to commit the crime?</button>
 
-                <button class="option-button" id='option_R1_1' onclick="node_tracker(current_node.left_opt)"> Right more 1</button>
-                <button class="option-button" id='option_R1_2' onclick="node_tracker(current_node.right_opt)">Right more 2</button>
+                <button class="option-button" id='option_R1_1' onclick="node_tracker(current_node.left_opt)"> Did you have any personal motives for targeting these specific banks?</button>
+                <button class="option-button" id='option_R1_2' onclick="node_tracker(current_node.right_opt)">How did you transfer the stolen money without getting caught?</button>
+                
+                <button class="option-button" id='option_R2_1' onclick="node_tracker(current_node.left_opt)"> Did you use a specific malware to breach the bank's systems?</button>
+                <button class="option-button" id='option_R2_2' onclick="node_tracker(current_node.right_opt)">Do you have anything else to say?</button>
             </div>
         </div>
     </div>
 
     <script src="{{url_for('static', filename='interactive_temp.js')}}"></script>
+ <script>
+        const dialogue_start = [
+            { sender: 'heard', text: "Mr. Turner, we have evidence linking you to a series of bank heists involving sophisticated cyberattacks. Now, you have a choice. You can either cooperate fully with the investigation, or you can make this harder for yourself. The decision is yours." },
+
+        ];
+
+        const right_dia_1 = [
+            { sender: 'said', text: "I gained access through a spear-phishing attack. I sent emails with malicious links to bank employees, and one of them fell for it." },
+            { sender: 'heard', text: "Thank you for your honesty" },
+        ];
+
+        const left_dia_1 = [
+            { sender: 'said', text: "I... I didn't work alone. There was someone else involved, but I don't know their real identity. We communicated on a darknet forum." },
+            { sender: 'heard', text: "We'll try to trace this accomplice" },
+        ];
+
+        const right_dia_1_01 = [
+            { sender: 'said', text: "I... I didn't keep track, but it must be in the millions." },
+            { sender: 'heard', text: "We'll verify the extent of the stolen funds.;)" }
+        ];
+
+        const right_dia_1_02 = [
+            { sender: 'said', text: "I used multiple anonymous offshore accounts to funnel the money." },
+            { sender: 'heard', text: "Please bestie ;)" }
+        ];
+
+        const left_dia_1_01 = [
+            { sender: 'said', text: "I... I didn't keep track, but it must be in the millions" },
+            { sender: 'heard', text: "We'll verify the extent of the stolen funds" }
+        ];
+
+        const left_dia_1_02 = [
+            { sender: 'said', text: "I acted on my own accord" },
+            { sender: 'heard', text: "Taking responsibility is the right step" }
+        ];
+
+        const right_1_02 = new Script(right_dia_1_02, null,null, null, null);
+        const right_1_01 = new Script(right_dia_1_01, null, null, null, null);
+
+        const left_1_02 = new Script(left_dia_1_02, null, null, null, null);
+        const left_1_01 = new Script(left_dia_1_01, null, null, null, null);
+
+        const right_1 = new Script(right_dia_1, right_1_01, right_1_02, "#option_R1_1", "#option_R1_2");
+        const left_1 = new Script(left_dia_1, left_1_01, left_1_02, "#option_L1_1", "#option_L1_2");
+
+        const root = new Script(dialogue_start, left_1, right_1, '#option_L0_1', 'option_R0_1');
+        const left_2 = new Script(left_dia_1, left_1_01, left_1_02, "#option_R2_1", "#option_R2_2");
+
+        let current_node = root;
+    </script>
+    
 </body>
 </html>

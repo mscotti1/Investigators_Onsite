@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Bebas Neue", sans-serif;
+        text-align: left;
+        font-size: 17px;
+        line-height: 1.95;
+      }
+
       body {
         background-color: #2c3333;
         display: flex;
@@ -12,7 +21,7 @@
         align-items: center;
         height: 100vh;
         margin: 0;
-      }
+      } 
 
       .folder {
         display: flex;
@@ -25,51 +34,69 @@
         background-color: rgb(222, 210, 157);
         width: 350px;
         height: 500px;
-
-        justify-content: center;
-        align-items: center;
         border: 2px solid black;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .folder-left {
+        border-radius: 10px 0 0 10px;
+      }
+
+      .folder-right {
+        border-radius: 0 10px 10px 0;
       }
 
       .paper {
-        padding: 30px 30px; /* Add padding around the container */
+        padding: 10px 10px; /* Add padding around the container */
         margin: 0px;
-        width: 80%;
+        width: 85%;
         height: 80%;
-        background-image: url("../static/images/taped.png");
-        /* Optional background properties */
-        background-size: cover; /* Adjust to 'contain', '100% 100%', etc., as per your requirement */
-        background-repeat: no-repeat;
-        background-position: center center;
+        background-color: white;
+        border-radius: 10px;
       }
 
       .paper-content {
         /* Add your styles for the content inside the divs here */
-        padding: 15px 10px;
         margin: 0px;
-        width: 90%;
-        height: 90%;
-        display: flex;
+        padding-top: 0px;
+        width: 100%;
+        height: 100%;
+        display: flex; /* Add this line to use flexbox */
+        /* justify-content: center; */
         flex-direction: column;
+        text-align: left;
       }
 
-      
+      .container-baseline {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+      }
+
+      .container-center {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
       .stackPaper {
         /* Add your styles for the content inside the divs here */
-        padding: 5px 10px;
+        padding-top: 20px;
+        padding-left: 10px;
         margin: 0px;
-        width: 35%;
-        height: 35%;
+        width: 125px; /* Increase the width of the div to make the image bigger */
+        height: 140px; /* Increase the height of the div to make the image bigger */
         display: flex;
         justify-content: center;
         align-items: center;
-        text-align: left;
-        /* Example:
-            font-size: 18px;
-            */
+        text-align: center;
+        /* Example: font-size: 18px; */
+
         background-image: url("../static/images/stackPaper.png");
         /* Optional background properties */
-        background-size: cover; /* Adjust to 'contain', '100% 100%', etc., as per your requirement */
+        background-size: cover; /* Use cover for a larger image that fills the entire div */
         background-repeat: no-repeat;
         background-position: center center;
       }
@@ -99,37 +126,38 @@
       <div class="folder-left">
         <div class="paper">
           <div id="p1" class="paper-content">
-            <div>
-                <h1>Title Example</h1>
-            </div>
-            <br />
-            <div width="100px">
-                <p>another div</p>
-            </div>
-            <div width="100px">
-                <h2> anoterh subti</h2>
+            <div class="container-baseline">
+                <h1> The Roof Man</h1>
+                <p>
+                    Put text on top first
+                </p>
+              <h1>This in a containr</h1>
+              <p>this is also in it</p>
             </div>
           </div>
         </div>
       </div>
       <div class="folder-right">
         <div class="paper">
-            <div id="p2" class="paper-content">
-                <h1>Page 2</h1>
-                <h1>Element 1</h1>
-                <br />
-                <!-- Use <br> to move to the next line -->
-                <img src="../static/images/slippersPoloraid.png" width="150" height="150">
-                <div class="stackPaper">
-                    <p> Maybe a note</p>
-                </div>
-                <br />
-                <h2>element 24</h2>
-          </div>
+          <div id="p2" class="paper-content">
+            <h1>Page 2</h1>
+            <h1>Element 1</h1>
+            <br />
+            <!-- Use <br> to move to the next line -->
 
+            <div class="container-center">
+              <img
+                src="../static/images/slippersPoloraid.png"
+                width="130"
+                height="130"
+              />
+              <div class="stackPaper">
+                <p>Maybe a note</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </body>
 </html>
-

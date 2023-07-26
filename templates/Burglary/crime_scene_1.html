@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
         <div class="crime-screen">
             <img src="{{url_for('static', filename='images/Mcds1.jpeg')}}" alt="Game Image1" id="image1" width="100%" height="515">
             <img src="{{url_for('static', filename='images/kitchen_dark.jpeg')}}" alt="Game Image2" id="image2" style="display:none;" width="100%" height="515">
-            <img src="{{url_for('static', filename='images/kitchen_light.jpeg')}}" alt="Game Image2" id="image3" style="display:none;" width="100%" height="515">
+            <img src="{{url_for('static', filename='images/bedroom_dark.jpeg')}}" alt="Game Image3" id="image3" style="display:none;" width="100%" height="515">
 
             <button id="up" onclick="display_image_3()"> ^ </button>
             <button id="right" onclick="display_image_2()"> >> </button>
@@ -26,8 +27,19 @@
             <button id="ev2" onclick="display_info(ev2)">
                 <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_2" width="100px" height="100px">
             </button>
+
             <button id="ev3" onclick="display_info(ev3)">
-                <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_3" width="100px" height="100px">
+                <img src = "{{url_for('static', filename='images/body_outline.jpeg')}}" alt="evidence_3" width="100px" height="100px">
+            </button>
+            <button id="ev4" onclick="display_info(ev4)">
+                <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_4" width="100px" height="100px">
+            </button>
+
+            <button id="ev5" onclick="display_info(ev5)">
+                <img src = "{{url_for('static', filename='images/body_outline.jpeg')}}" alt="evidence_5" width="100px" height="100px">
+            </button>
+            <button id="ev6" onclick="display_info(ev6)">
+                <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_6" width="100px" height="100px">
             </button>
 
         </div>
@@ -39,13 +51,6 @@
         </button>
     <script src="{{url_for('static', filename='main.js')}}"></script>
     <script src="{{url_for('static', filename='crime_scene_temp.js')}}"></script>
-    <script>
-        let info_list = ["Evidence 1", "Evidence 2", "Evidence 3"];
-        found_4 = true;
-        found_5 = true;
-        found_6 = true;
-        console.log(found_4, found_5, found_6)
-    </script>
 
 </body>
 </html>

@@ -25,18 +25,6 @@
     font-size: 20px;
     line-height: 1.5;
 }
-.blue-text {
-    color : rgb(16, 12, 248);
-    font-weight: bold;
-}
-.red-text {
-    color : #a50000;
-    font-weight: bold;
-}
-.green-text {
-    color : #04bf90;
-    font-weight: bold;
-}
 
 #continue{
     background-color: #1864f3;

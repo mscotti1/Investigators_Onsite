@@ -6,8 +6,10 @@ engine = db.create_engine('sqlite:///stats.db')
 # tracks all tables
 metadata = db.MetaData()
 # schema of table
+# we using database as a pseudo cache
 stats_data = db.Table("stats_data", metadata,
                 db.Column("ZipCode", db.String(5)),
+
                 db.Column("Overall Crime Grade", db.Float),
                 db.Column("Violent Crime Grade", db.Float),
                 db.Column("Property Crime Grade", db.Float),
@@ -32,7 +34,9 @@ stats_data = db.Table("stats_data", metadata,
                 db.Column("Drug Crime Rate", db.Float),
                 db.Column("Vandalism Crime Rate", db.Float),
                 db.Column("Identity Theft Crime Rate", db.Float),
-                db.Column("Animal Cruelty Crime Rate", db.Float))
+                db.Column("Animal Cruelty Crime Rate", db.Float),
+
+                db.Column("Expiry Time", db.DateTime))
 # creates all tables associated with metadata
 metadata.create_all(engine)
 
@@ -59,7 +63,7 @@ def api_function(zipcode):
 
             central = float(violent_crimes["Assault"]) + float(violent_crimes["Rape"]) + float(other_crimes["Kidnapping"])
             pam = float(violent_crimes["Murder"]) + float(other_crimes["Animal Cruelty"])
-            roof = float(violent_crimes["Robbery"]) + float(property_crimes["Vehicle Theft"]) + float(property_crimes["Burglary"]) + float(property_crimes["Arson"]) + float(other_crimes["Vandalism"])
+            roof = float(violent_crimes["Robbery"]) + float(property_crimes["Vehicle Theft"]) + float(property_crimes["Burglary"]) + float(property_crimes["Arson"]) + float(other_crimes["Vandalism"]) + float(property_crimes["Theft"])
             cyber = float(property_crimes["Theft"]) + float(other_crimes["Drug Crimes"]) + float(other_crimes["Identity Theft"])
 
             print("Central Tot: ", central)

@@ -54,9 +54,7 @@ def hom_court_2():
 def hom_crime_2():
     return render_template("Homicide/crime_scene_2.html")
 
-@app.route("/cyber")
-def Cyber_crime():
-    return render_template("CyberCrime/Cyber_crime.html")
+
 
 @app.route("/central")
 def Central_Park():
@@ -74,17 +72,21 @@ def interactive():
 def crime_scene():
     return render_template("crime_scene_temp.html")
 
+@app.route("/cyber")
+def Cyber_crime():
+    return render_template("CyberCrime/Cyber_crime.html")
 @app.route("/cyber_scene")
 def cyber_crime_scene():
     return render_template("CyberCrime/crime_scene_cyber.html")
-
 @app.route("/interr")
 def cyber_interrogation():
     return render_template("CyberCrime/cyber_interrogate.html")
-
 @app.route("/cyber_listen")
 def cyber_listen():
     return render_template("CyberCrime/cyber_listen.html")
+@app.route("/cyber_file")
+def Cyber_file():
+    return render_template("CyberCrime/cyber_file.html")
 
 @app.route("/level_select")
 def level_select():
@@ -130,7 +132,7 @@ def process_zip():
         choice_route = "/file"
     elif choice == "cyber":
         print("We made it")
-        choice_route = "/cyber_scene"
+        choice_route = "/cyber_file"
     return {'key': choice_route}
     # pass in result from function to redirect
     # return redirect_url()

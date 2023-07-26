@@ -9,7 +9,7 @@ metadata = db.MetaData()
 stats_data = db.Table("stats_data", metadata,
                 db.Column("Violent Crime Rate", db.Float),
                 db.Column("Other Crime Rate", db.Float),
-                db.Column("Property Crime Rate", db.Float)
+                db.Column("Property Crime Rate", db.Float))
                 # db.Row("ZipCode", db.String(5))
 # creates all tables associated with metadata
 metadata.create_all(engine)

@@ -85,6 +85,9 @@ def cyber_crime_scene():
 @app.route("/interr")
 def cyber_interrogation():
     return render_template("CyberCrime/cyber_interrogate.html")
+@app.route("/interrr")
+def cyber_interrogation2():
+    return render_template("CyberCrime/cyber_interrogate2.html")
 @app.route("/cyber_listen")
 def cyber_listen():
     return render_template("CyberCrime/cyber_listen.html")

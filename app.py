@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
-from api import api_function
+from api import api_function, insert_data, expired
 
 app = Flask(__name__)
 
@@ -34,6 +34,9 @@ def hom_listen_1():
 @app.route("/hom/interrogate_1")
 def hom_interrogate_1():
     return render_template("Homicide/interrogate_1.html")
+@app.route("/hom/court")
+def hom_court_bad():
+    return render_template("Homicide/court_bad.html")
 @app.route("/hom/court_1")
 def hom_court_1():
     return render_template("Homicide/court_1.html")

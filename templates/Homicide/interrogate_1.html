@@ -21,18 +21,27 @@
                 </div>
             </div>
             <div class="button-container">
-                <button class="option-button" id='option_L0_1' onclick="node_tracker(current_node.left_opt)"> You are going to jail</button>
-                <button class="option-button" id='option_R0_1' onclick="node_tracker(current_node.right_opt)">I understand ;)</button>
+                <button class="option-button" id='option_L0_1' onclick="node_tracker(current_node.left_opt)"> What movies?</button>
+                <button class="option-button" id='option_R0_1' onclick="node_tracker(current_node.right_opt)"> How long were you with these friends?</button>
                 
-                <button class="option-button" id='option_L1_1' onclick="node_tracker(current_node.left_opt); set_end(0)"> Left more 1</button>
-                <button class="option-button" id='option_L1_2' onclick="node_tracker(current_node.right_opt)">Left more 2</button>
+                <button class="option-button" id='option_L1_01' onclick="node_tracker(current_node.left_opt)"> How far away does your friend live?</button>
+                <button class="option-button" id='option_L1_02' onclick="node_tracker(current_node.right_opt)"> How was your relationship with your wife?</button>
 
-                <button class="option-button" id='option_R1_1' onclick="node_tracker(current_node.left_opt)"> Right more 1</button>
-                <button class="option-button" id='option_R1_2' onclick="node_tracker(current_node.right_opt)">Right more 2</button>
+                <button class="option-button" id='option_L2_01' onclick="node_tracker(current_node.left_opt)"> Not enough time to do a lot huh?</button>
+                <button class="option-button" id='option_L2_02' onclick="node_tracker(current_node.right_opt); set_end(0)"> Plenty of time to commit a murder.</button>
+
+                <button class="option-button" id='option_L2_11' onclick="node_tracker(current_node.left_opt); set_end(0)"> Seems like you might need more after today.</button>
+                <button class="option-button" id='option_L2_12' onclick="node_tracker(current_node.right_opt); set_end(0)"> You get a bit antsy without your fix?</button>
+
+                <button class="option-button" id='option_R1_01' onclick="node_tracker(current_node.left_opt)"> So what time did you end up getting home?</button>
+                <button class="option-button" id='option_R1_02' onclick="node_tracker(current_node.right_opt); set_end(0)"> Trying to fake an alibi?</button>
+
+                <button class="option-button" id='option_R2_01' onclick="node_tracker(current_node.left_opt)"> Was Becky with anyone earlier today?</button>
+                <button class="option-button" id='option_R2_02' onclick="node_tracker(current_node.right_opt)"> You've been wearing that outfit all day?</button>
             </div>
         </div>
     </div>
-    <a href = "{{url_for('homicide')}}">
+    <a href = "{{url_for('hom_court_bad')}}">
         <button id="continue0" class="continue">
             Continue 
         </button>
@@ -46,72 +55,190 @@
     <script src="{{url_for('static', filename='interactive_temp.js')}}"></script>
     <script>
         const dialogue_start = [
-            { sender: 'heard', text: "NEW WORDS" },
-            { sender: 'said', text: "Definitely, something a murderer would say..." },
-            { sender: 'heard', text: "But I am being framed. FRAMED I SAY!" },
-            { sender: 'said', text: "*Gasp* I never considered this! Who do you think is framing you?" },
-            { sender: 'heard', text: "I think I remember seeing Joe that day." },
-            { sender: 'heard', text: "Yea!"}, 
-            { sender: 'heard', text: "He was definitely the last person to see Beck alive before me!"},
-            { sender: 'said', text: "-_-" },
-            { sender: 'said', text: "Do you hear yourself?" },
-            { sender: 'said', text: "Straight to jail. Do not pass go." },
-            { sender: 'heard', text: "Man, why did you have to pretend to be on my side. T_T" },
+            { sender: 'said', text: "What were you doing before you got home?" },
+            { sender: 'heard', text: "Every Tuesday, me and the boys go out and hang." },
+            { sender: 'heard', text: "Today we decided to go to Micheal's place to play some D&D, but Kyle couldn't make it, so we ended up watching some movies." },
         ];
 
         const right_dia_1 = [
-            { sender: 'heard', text: "NEW WORDS" },
-            { sender: 'said', text: "AWESOME" },
-            { sender: 'heard', text: "Please bestie ;)" }
-        ];
-
-        const left_dia_1 = [
-            { sender: 'said', text: "-_-" },
-            { sender: 'said', text: "NEW WORDS" },
-            { sender: 'said', text: "TUBULAR" },
-            { sender: 'heard', text: "Boooo. I don't wanna go to jail... T_T" }
+            { sender: 'said', text: "How long were you with these friends?" },
+            { sender: 'heard', text: "I got there around six, we didn't end up doing much so I left around nine." },
+            { sender: 'said', text: "And you went straight home?" },
+            { sender: 'heard', text: "No, I went to get some gas and cigarettes before heading home." },
+            { sender: 'said', text: "And you needed to go to two separate stations to do this?" },
+            { sender: 'said', text: "You trying to compare prices or something?" },
+            { sender: 'heard', text: " Actually, the first place didn't have my usual cigs, so I went to another to check them out." },
         ];
 
         const right_dia_1_01 = [
-            { sender: 'heard', text: "NEW WORDS" },
-            { sender: 'said', text: "RAD" },
-            { sender: 'heard', text: "Please bestie ;)" }
+            { sender: 'said', text: "So what time did you end up getting home?" },
+            { sender: 'heard', text: "9:30? I'm not entirely sure." },
+            { sender: 'said', text: "So you got home and then saw your wife on the ground and called the cops, right?" },
+            { sender: 'heard', text: "Yeah, I found her just laying there dead with cuts on her wrists." },
+            { sender: 'said', text: "Okay, let's say you did get home at 9:30." },
+            { sender: 'said', text: "From that time to when you called, it gives you 15 minutes to kill your wife and dispose of the evidence." },
+            { sender: 'said', text: "Sounds like a tight time frame." },
+            { sender: 'said', text: "So tell me. How is that possible?" },
+            { sender: 'heard', text: "It's possible because I didn't kill her." },
+            { sender: 'said', text: "So who did?" },
+            { sender: 'heard', text: "I don't know." }
+        ];
+
+        const right_dia_2_01 = [
+            { sender: 'said', text: "Was Becky with anyone earlier today?" },
+            { sender: 'heard', text: "Yes, she was with some of her friends from tennis all day." },
+            { sender: 'said', text: "All day?" },
+            { sender: 'said', text: "Did she tell you when she was getting home?" },
+            { sender: 'heard', text: "Yea she said she was leaving to go home around 7." },
+            { sender: 'said', text: "Do you know how she got home?" },
+            { sender: 'heard', text: "Her best friend Patricia said that she would drop her off." },
+            { sender: 'said', text: "Patricia…" },
+        ];
+
+        const right_dia_2_02 = [
+            { sender: 'said', text: "You've been wearing that outfit all day?" },
+            { sender: 'heard', text: "Yeah, I haven't exactly been given a chance to change yet." },
+            { sender: 'said', text: "That's true, and a bright orange shirt stands out quite a bit, yeah?" },
+            { sender: 'heard', text: " I guess so…" },
+            { sender: 'said', text: " And I must say, it's rather clean." },
+            { sender: 'said', text: "I doubt you would have been able to have laundry…." },
+            { sender: 'heard', text: "I don't know what you're getting at sir." },
+            { sender: 'said', text: " Nothing, nothing." },
         ];
 
         const right_dia_1_02 = [
-            { sender: 'heard', text: "NEW WORDS" },
-            { sender: 'said', text: "COOL" },
-            { sender: 'heard', text: "Please bestie ;)" }
+            { sender: 'said', text: "Trying to fake an alibi?" },
+            { sender: 'said', text: "I mean that bright orange shirt of yours just screams “hey look at me!" },
+            { sender: 'heard', text: "This is just a normal shirt. I don't -" },
+            { sender: 'said', text: "Just a normal shirt that makes sure people can identify you on camera." },
+            { sender: 'heard', text: "Isn't that a good thing?" },
+            { sender: 'heard', text: "So you guys know I'm not lying about where I have been." },
+            { sender: 'said', text: "Sure we know you went to those places at 9." },
+            { sender: 'said', text: "But what about the rest of the time before the 911 call?" },
+            { sender: 'heard', text: "I just drove home and when I got there I found her." },
+            { sender: 'said', text: "Oh really?" },
+            { sender: 'heard', text: "YES!" },
+            { sender: 'heard', text: "I found her dead on the floor." },
+            { sender: 'heard', text: "I don't understand why no one is listening to me." },
+            { sender: 'heard', text: "I wasn't there!" },
+            { sender: 'heard', text: "I didn't kill her." },
+            { sender: 'said', text: "No, you killed your wife." }
+        ];
+
+        const left_dia_1 = [
+            { sender: 'said', text: "What movies?" },
+            { sender: 'heard', text: "Conan the Barbarian and Scream." },
+            { sender: 'heard', text: " But I have to admit, it was kinda boring." },
+            { sender: 'said', text: " Not enough action for ya?" },
+            { sender: 'heard', text: "Yeah sure, I guess?" },
+            { sender: 'said', text: "Could have used more blood?" },
+            { sender: 'heard', text: "What?" },
+            { sender: 'heard', text: "No." },
+            { sender: 'heard', text: "What are you trying to say?" },
+            { sender: 'said', text: "Nothing, nothing." }
         ];
 
         const left_dia_1_01 = [
-            { sender: 'said', text: "-_-" },
-            { sender: 'said', text: "NEW WORDS" },
-            { sender: 'said', text: "JWOO" },
-            { sender: 'heard', text: "Boooo. I don't wanna go to jail... T_T" }
+            { sender: 'said', text: "How far away does your friend live?" },
+            { sender: 'heard', text: "Micheal is about, I don't know, 30 minutes away from my place." },
+            { sender: 'said', text: "And did you head straight home from his place?" },
+            { sender: 'heard', text: "No, I went to get some cigs since I ran out. I also got some gas." },
+            { sender: 'said', text: "So around what time did you end up coming home?" },
+            { sender: 'heard', text: "I'm not entirely sure, but I think it was around 9:30." }
+        ];
+
+        const left_dia_2_01 = [
+            { sender: 'said', text: "Not enough time to do a lot huh?" },
+            { sender: 'heard', text: "Yeah…" },
+            { sender: 'said', text: "That is, if you're telling the truth." },
+            { sender: 'heard', text: "I am!" },
+            { sender: 'heard', text: "You have to believe me, when I entered the house I just found her like that." },
+            { sender: 'said', text: "Well, if you didn't do it, then who did?" },
+            { sender: 'said', text: "Was your wife with anyone before you came home?" },
+            { sender: 'heard', text: "You know what?" },
+            { sender: 'heard', text: "I think she said something about meeting up with her friends Veronica, Nicole, and Patricia." },
+            { sender: 'said', text: "Some friends you say?" },
+            { sender: 'said', text: "Hmm..." }
+        ];
+
+        const left_dia_2_02 = [
+            { sender: 'said', text: "Plenty of time to commit a murder." },
+            { sender: 'heard', text: "What?!" },
+            { sender: 'heard', text: "NO!" },
+            { sender: 'heard', text: "I'm telling you, I didn't do it!" },
+            { sender: 'said', text: "There was blood found on your slippers Ronald, it could only have been you!" },
+            { sender: 'heard', text: "You're crazy, I didn't do anything to her!" },
+            { sender: 'heard', text: "I FOUND HER!" },
+            { sender: 'said', text: "What happened to that calmness my colleagues were speaking of huh?" },
+            { sender: 'heard', text: "I wasn't there." },
+            { sender: 'heard', text: "I didn't kill her." },
+            { sender: 'said', text: "Save it for the jury." },
+            { sender: 'said', text: "I didn't kill her…" }
         ];
 
         const left_dia_1_02 = [
-            { sender: 'said', text: "-_-" },
-            { sender: 'said', text: "NEW WORDS" },
-            { sender: 'said', text: "YURRR" },
-            { sender: 'heard', text: "Boooo. I don't wanna go to jail... T_T" }
+            { sender: 'said', text: "How was your relationship with your wife?" },
+            { sender: 'heard', text: "I mean, she's my wife." },
+            { sender: 'heard', text: "I love-loved-, no I do LOVE her!" },
+            { sender: 'heard', text: "I wouldn't do anything to her!" },
+            { sender: 'said', text: "I wasn't suggesting that you would sir, but are you sure that there weren't any disagreements lately?" },
+            { sender: 'heard', text: "She's been dealing with chemo recently, and it's been hard on us, but I've always tried to be there for her." },
+            { sender: 'said', text: "I  can only imagine what that stress has been doing to you." },
+            { sender: 'heard', text: " Yeah, I've been buying more cigs recently to cope." },
+            { sender: 'heard', text: "She's been telling me to quit, but old habits die hard huh." },
         ];
 
+        const left_dia_2_11 = [
+            { sender: 'said', text: "Seems like you might need more after today." },
+            { sender: 'said', text: "Too bad they're banned in prison." },
+            { sender: 'heard', text: "What the hell are you saying?" },
+            { sender: 'said', text: "We found blood on your slippers at the scene of the crime." },
+            { sender: 'heard', text: "I didn't do it man!" },
+            { sender: 'heard', text: "I didn't kill my wife!" },
+            { sender: 'said', text: "You had enough time to come home from your little hang out and stab Becky 55 times!" },
+            { sender: 'heard', text: "55 times…" },
+            { sender: 'said', text: "Is that barbaric enough you Ronald?" },
+            { sender: 'heard', text: "Oh god, Becky…" }
+        ];
+
+        const left_dia_2_12 = [
+            { sender: 'said', text: "You get a bit antsy without your fix?" },
+            { sender: 'said', text: "You lose your temper?" },
+            { sender: 'heard', text: "What?!" },
+            { sender: 'heard', text: "NO!" },
+            { sender: 'heard', text: "What the hell man?!" },
+            { sender: 'heard', text: "I-I didn't do it." },
+            { sender: 'said', text: "Then who did Ronald?" },
+            { sender: 'said', text: "Who killed your wife?!" },
+            { sender: 'heard', text: "I didn't do it. I wa-wasn't there." },
+            { sender: 'said', text: "Then what about the blood on your slippers?" },
+            { sender: 'said', text: "Tell me Ronald, tell me!" },
+            { sender: 'heard', text: "I'm telling you, I walked in the door and found her." },
+            { sender: 'heard', text: "I found her." },
+            { sender: 'said', text: "No Ronald, you killed her." }
+        ];
+
+        const right_2_02 = new Script(right_dia_2_02, null,null, null, null);
+        const right_2_01 = new Script(right_dia_2_01, null, null, null, null);
+
         const right_1_02 = new Script(right_dia_1_02, null,null, null, null);
-        const right_1_01 = new Script(right_dia_1_01, null, null, null, null);
+        const right_1_01 = new Script(right_dia_1_01, right_2_01, right_2_02, "#option_R2_01", "#option_R2_02");
 
-        const left_1_02 = new Script(left_dia_1_02, null, null, null, null);
-        const left_1_01 = new Script(left_dia_1_01, null, null, null, null);
+        const left_2_12 = new Script(left_dia_2_12, null, null, null, null);
+        const left_2_11 = new Script(left_dia_2_11, null, null, null, null);
 
-        const right_1 = new Script(right_dia_1, right_1_01, right_1_02, "#option_R1_1", "#option_R1_2");
-        const left_1 = new Script(left_dia_1, left_1_01, left_1_02, "#option_L1_1", "#option_L1_2");
+        const left_2_02 = new Script(left_dia_2_02, null, null, null, null);
+        const left_2_01 = new Script(left_dia_2_01, null, null, null, null);
+
+        const left_1_02 = new Script(left_dia_1_02, left_2_11, left_2_12, "#option_L2_11", "#option_L2_12");
+        const left_1_01 = new Script(left_dia_1_01, left_2_01, left_2_02, "#option_L2_01", "#option_L2_02");
+
+        const right_1 = new Script(right_dia_1, right_1_01, right_1_02, "#option_R1_01", "#option_R1_02");
+        const left_1 = new Script(left_dia_1, left_1_01, left_1_02, "#option_L1_01", "#option_L1_02");
 
         const root = new Script(dialogue_start, left_1, right_1, '#option_L0_1', '#option_R0_1');
 
         let current_node = root;
-
-        
         
     </script>
     

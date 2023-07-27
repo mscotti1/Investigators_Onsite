@@ -17,7 +17,7 @@ body {
     height: 100%;
     width: 100%;
     min-height: 100vh;
-    background: radial-gradient(#f9d349, 20%, #d57e12);
+    background: radial-gradient(#A5C9CA, 20%, #395B64);
     position: relative;
 }
 .hero header .logo h2 a{

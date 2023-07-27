@@ -1,5 +1,53 @@
-<a href = "{{url_for('hom_crime_1')}}">
-    <button id="continue">
-        Continue 
-    </button>
-</a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='file_template.css')}}">
+  </head>
+  <body>
+    <div class="folder">
+      <div class="folder-left">
+        <div class="paper">
+          <div id="p1" class="paper-content">
+            <div class="container-baseline">
+                <h1> The Roof Man</h1>
+                <p>
+                    Put text on top first
+                </p>
+              <h1>This in a containr</h1>
+              <p>this is also in it</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="folder-right">
+        <div class="paper">
+          <div id="p2" class="paper-content">
+            <h1>Page 2</h1>
+            <h1>Element 1</h1>
+            <br />
+            <!-- Use <br> to move to the next line -->
+
+            <div class="container-center">
+              <img
+                src="../static/images/slippersPoloraid.png"
+                width="130"
+                height="130"
+              />
+              <div class="stackPaper">
+                <p>Maybe a note</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href = "{{url_for('hom_crime_1')}}">
+        <button class="continue">
+            Continue 
+        </button>
+    </a>
+    </div>
+</body>
+</html>

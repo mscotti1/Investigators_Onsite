@@ -18,6 +18,7 @@ def burglary():
 @app.route('/bug/crime_scene_1')
 def bug_crime_1():
     return render_template("Burglary/crime_scene_1.html")
+
 ##### HOMICIDE ROUTES #####
 @app.route("/hom")
 def homicide():
@@ -121,9 +122,12 @@ def process_zip():
     # read from a form that Maymouna sends to this route 
     # call function from api.py and pass in zipcode
     zipcode = request.form.get('zipcode')
+    insert_data(zipcode)
+
     choice = api_function(zipcode)
     print(zipcode)
     print("Your case is: ",choice)
+    
     # switch or if else to decide which route to redirect to
     choice_route = ""
 
@@ -139,7 +143,6 @@ def process_zip():
     return {'key': choice_route}
     # pass in result from function to redirect
     # return redirect_url()
-
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

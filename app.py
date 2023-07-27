@@ -55,10 +55,22 @@ def hom_crime_2():
     return render_template("Homicide/crime_scene_2.html")
 
 
+# MTA SLAHSER ROUTES
+@app.route("/crime_scene_mta")
+def crime_scene_mta():
+    return render_template("MTA_Slasher/crime_scene_mta.html")
 
-@app.route("/central")
-def Central_Park():
-    return render_template("CentralPark/Central_Park.html")
+@app.route("/listen_mta")
+def listen_scene_mta():
+    return render_template("MTA_Slasher/listening_mta.html")
+
+@app.route("/interrogate_mta")
+def interrogate_mta():
+    return render_template("MTA_Slasher/interrogation_mta.html")
+
+@app.route("/interrogate_mta2")
+def interrogate_mta_two():
+    return render_template("MTA_Slasher/interrogation_mta2.html")
 
 @app.route("/listen")
 def interrogation():

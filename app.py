@@ -1,7 +1,12 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for
-from api import api_function, insert_data, expired
+from flask import Flask, render_template, request, jsonify, redirect, url_for, session
+from flask_session import Session
+from api import api_request, insert_data, expired, parser, case_choice, stats_data, engine, check_exists
+import sqlalchemy as db
 
 app = Flask(__name__)
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -137,15 +142,19 @@ def process_zip():
     # read from a form that Maymouna sends to this route 
     # call function from api.py and pass in zipcode
     zipcode = request.form.get('zipcode')
-    insert_data(zipcode)
+    session['zipcode'] = zipcode
 
-    choice = api_function(zipcode)
-    print(zipcode)
-    print("Your case is: ",choice)
+    exists = check_exists(zipcode)
+    if exists == False:
+        data = api_request(zipcode)
+        insert_data(parser(zipcode, data))
+
+        choice = case_choice(zipcode, data)
+        print(zipcode)
+        print("Your case is: ",choice)
     
     # switch or if else to decide which route to redirect to
     choice_route = ""
-
     if choice == "central":
         choice_route = "/central"
     elif choice == "homicide":
@@ -158,6 +167,15 @@ def process_zip():
     return {'key': choice_route}
     # pass in result from function to redirect
     # return redirect_url()
+
+@app.route("/test_stats")
+def test_stats():
+    zipcode = session.get('zipcode')
+    with engine.connect() as connection:
+        stats = db.select(stats_data).where(stats_data.c.ZipCode == zipcode)
+        connection.execute(stats)
+    print(stats)
+    return render_template("testing_stats.html", stats = stats)
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

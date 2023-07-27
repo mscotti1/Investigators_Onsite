@@ -24,14 +24,14 @@
             <button id="ev1" onclick="display_info(ev1)">
                 <img src = "{{url_for('static', filename='/images/body_outline.jpeg')}}" alt="evidence_1" width="100px" height="100px">
             </button>
-            <button id="ev2" onclick="display_info(ev2)">
+            <button id="ev2" onclick="display_info(ev2)" style="display: none;" class="hidden" >
                 <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_2" width="100px" height="100px">
             </button>
 
-            <button id="ev3" onclick="display_info(ev3)">
+            <button id="ev3" onclick="display_info(ev3)" class="hidden" >
                 <img src = "{{url_for('static', filename='images/body_outline.jpeg')}}" alt="evidence_3" width="100px" height="100px">
             </button>
-            <button id="ev4" onclick="display_info(ev4)">
+            <button id="ev4" onclick="display_info(ev4)" class="hidden" >
                 <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_4" width="100px" height="100px">
             </button>
 
@@ -46,11 +46,29 @@
         <div class="info-box">
             Click on evidence to get more information.
         </div>
+        <a href="{{url_for('bug_crime2')}}">
         <button id="continue">
             Continue
         </button>
+    </a>
     <script src="{{url_for('static', filename='main.js')}}"></script>
     <script src="{{url_for('static', filename='crime_scene_temp.js')}}"></script>
+    <script>
+        found_1 = false;
+        found_2 = true;
+        found_3 = true;
+        found_4 = true;
+        found_5 = false;
+        found_6 = false;
+        let info_list = [
+            "MANAGER",
+            "why", 
+            "",
+            "",
+            "ROOF HOLE",
+            "FREEZER",
+        ];
+    </script>
 
 </body>
 </html>

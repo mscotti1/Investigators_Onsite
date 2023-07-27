@@ -1,6 +1,9 @@
 import requests
 import sqlalchemy as db
+from datetime import datetime, timedelta
 
+url = 'https://zylalabs.com/api/824/crime+data+by+zipcode+api/583/get+crime+rates+by+zip'
+headers = {'Authorization': 'Bearer 1723|9t0K2GR1PxMpsCefgBiK2IJBkwiBNyyCsT7KTuVi'}
 # creates database if it does not already exist
 engine = db.create_engine('sqlite:///stats.db')
 # tracks all tables
@@ -10,39 +13,109 @@ metadata = db.MetaData()
 stats_data = db.Table("stats_data", metadata,
                 db.Column("ZipCode", db.String(5)),
 
-                db.Column("Overall Crime Grade", db.Float),
-                db.Column("Violent Crime Grade", db.Float),
-                db.Column("Property Crime Grade", db.Float),
-                db.Column("Other Crime Grade", db.Float),
-                db.Column("Fact", db.Float),
-                db.Column("Risk Detail", db.Float),
+                db.Column("crime_overall", db.String(1)),
+                db.Column("violent_grade", db.String(1)),
+                db.Column("property_grade", db.String(1)),
+                db.Column("other_grade", db.String(1)),
+                db.Column("fact", db.String(100)),
+                db.Column("risk", db.String(100)),
 
-                db.Column("Total Violent Crime Rate", db.Float),
-                db.Column("Assault Crime Rate", db.Float),
-                db.Column("Robbery Crime Rate", db.Float),
-                db.Column("Rape Crime Rate", db.Float),
-                db.Column("Murder Crime Rate", db.Float),
+                db.Column("violent_rate", db.Float),
+                db.Column("assault", db.Float),
+                db.Column("robbery", db.Float),
+                db.Column("rape", db.Float),
+                db.Column("murder", db.Float),
 
-                db.Column("Total Property Crime Rate", db.Float),
-                db.Column("Theft Crime Rate", db.Float),
-                db.Column("Vehicle Theft Crime Rate", db.Float),
-                db.Column("Burglary Crime Rate", db.Float),
-                db.Column("Arson Crime Rate", db.Float),
+                db.Column("property_rate", db.Float),
+                db.Column("theft", db.Float),
+                db.Column("vehicle", db.Float),
+                db.Column("burglary", db.Float),
+                db.Column("arson", db.Float),
 
-                db.Column("Total Other Crime Rate", db.Float),
-                db.Column("Kidnapping Crime Rate", db.Float),
-                db.Column("Drug Crime Rate", db.Float),
-                db.Column("Vandalism Crime Rate", db.Float),
-                db.Column("Identity Theft Crime Rate", db.Float),
-                db.Column("Animal Cruelty Crime Rate", db.Float),
+                db.Column("other_rate", db.Float),
+                db.Column("kidnapping", db.Float),
+                db.Column("drug", db.Float),
+                db.Column("vandalism", db.Float),
+                db.Column("idenity_theft", db.Float),
+                db.Column("animal_cruelty", db.Float),
 
-                db.Column("Expiry Time", db.DateTime))
+                db.Column("Expiry", db.DateTime))
 # creates all tables associated with metadata
+# metadata.drop_all(engine)
 metadata.create_all(engine)
 
-url = 'https://zylalabs.com/api/824/crime+data+by+zipcode+api/583/get+crime+rates+by+zip'
-headers = {'Authorization': 'Bearer 1723|9t0K2GR1PxMpsCefgBiK2IJBkwiBNyyCsT7KTuVi'}
-# zipcode = input("practice: ")
+def parser(zipcode):
+    params = {'zip': zipcode}
+    response = requests.get(url, headers=headers, params=params)
+    if response.status_code == 200:
+        result = {'ZipCode': zipcode}
+        expiry = datetime.now() + timedelta(days=7)
+        yesterday = datetime.now() - timedelta(days = 1)
+        result.update({'Expiry': yesterday})
+
+        data = response.json()
+
+        crime_overall = data['Overall']['Overall Crime Grade']
+        violent_grade = data['Overall']['Violent Crime Grade']
+        property_grade = data['Overall']['Property Crime Grade']
+        other_grade = data['Overall']['Other Crime Grade']
+        fact = data['Overall']['Fact']
+        risk = data['Overall']['Risk Detail']
+
+        result.update([('crime_overall', crime_overall), ('violent_grade', violent_grade), ('property_grade', property_grade), 
+                       ('other_grade', other_grade), ('fact', fact), ('risk', risk)])
+
+        violent_crimes = data["Crime BreakDown"][0]["Violent Crime Rates"]
+        violent_rate = data["Crime BreakDown"][0]['0']['Total Violent Crime']
+        assault = violent_crimes["Assault"]
+        robbery = violent_crimes["Robbery"]
+        rape = violent_crimes["Rape"]
+        murder = violent_crimes["Murder"]
+
+        result.update([('violent_rate', violent_rate), ('assault', assault), 
+                       ('robbery', robbery), ('rape', rape), ('murder', murder)])
+        
+        property_crimes = data["Crime BreakDown"][1]["Property Crime Rates"]
+        property_rate = data["Crime BreakDown"][1]['0']['Total Property Crime']
+        theft = property_crimes["Theft"]
+        vehicle = property_crimes["Vehicle Theft"]
+        burglary = property_crimes["Burglary"]
+        arson = property_crimes["Arson"]
+
+        result.update([('property_rate', property_rate), ('theft', theft), 
+                       ('vehicle', vehicle), ('burglary', burglary), ('arson', arson)])
+        
+        other_crimes = data["Crime BreakDown"][2]["Other Crime Rates"]
+        other_rate = data["Crime BreakDown"][2]['0']['Total Other Rate']
+        kidnapping = other_crimes["Kidnapping"]
+        drug = other_crimes["Drug Crimes"]
+        vandalism = other_crimes["Vandalism"]
+        idenity_theft = other_crimes["Identity Theft"]
+        animal_cruelty = other_crimes["Animal Cruelty"]
+
+        result.update([('other_rate', other_rate), ('kidnapping', kidnapping), ('drug', drug), 
+                       ('vandalism', vandalism), ('idenity_theft', idenity_theft), ('animal_cruelty', animal_cruelty)])
+        
+        return result
+# 46032
+#rates are per 1000 in a standard year)
+
+def insert_data(data):
+    with engine.connect() as connection:
+        connection.execute(stats_data.insert(), data)
+        connection.commit()
+        # return jsonify(scores)
+
+def expired():
+    with engine.connect() as connection:
+        delt = db.delete(stats_data).where(stats_data.c.Expiry < datetime.now())
+        connection.execute(delt)
+        connection.commit()
+
+
+# insert_data(parser('46032'))
+expired()
+
 
 def api_function(zipcode):
     if zipcode.isnumeric() and len(zipcode)==5:

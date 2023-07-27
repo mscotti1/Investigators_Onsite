@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
-from api import api_function
+from api import api_function, insert_data, expired
 
 app = Flask(__name__)
 
@@ -18,6 +18,7 @@ def burglary():
 @app.route('/bug/crime_scene_1')
 def bug_crime_1():
     return render_template("Burglary/crime_scene_1.html")
+
 ##### HOMICIDE ROUTES #####
 @app.route("/hom")
 def homicide():
@@ -34,6 +35,9 @@ def hom_listen_1():
 @app.route("/hom/interrogate_1")
 def hom_interrogate_1():
     return render_template("Homicide/interrogate_1.html")
+@app.route("/hom/court")
+def hom_court_bad():
+    return render_template("Homicide/court_bad.html")
 @app.route("/hom/court_1")
 def hom_court_1():
     return render_template("Homicide/court_1.html")
@@ -93,6 +97,9 @@ def cyber_crime_scene():
 @app.route("/interr")
 def cyber_interrogation():
     return render_template("CyberCrime/cyber_interrogate.html")
+@app.route("/interrr")
+def cyber_interrogation2():
+    return render_template("CyberCrime/cyber_interrogate2.html")
 @app.route("/cyber_listen")
 def cyber_listen():
     return render_template("CyberCrime/cyber_listen.html")
@@ -130,9 +137,12 @@ def process_zip():
     # read from a form that Maymouna sends to this route 
     # call function from api.py and pass in zipcode
     zipcode = request.form.get('zipcode')
+    insert_data(zipcode)
+
     choice = api_function(zipcode)
     print(zipcode)
     print("Your case is: ",choice)
+    
     # switch or if else to decide which route to redirect to
     choice_route = ""
 
@@ -148,7 +158,6 @@ def process_zip():
     return {'key': choice_route}
     # pass in result from function to redirect
     # return redirect_url()
-
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

@@ -12,27 +12,26 @@
     <div class="listen-screen">
         <img src="{{url_for('static', filename='images/random_interrogate.jpg')}}" alt="Game Image" width="100%" height="515">
     </div>
-    <div class="text-box" onclick="changeText(dialogue_good)">
+    <div class="text-box" onclick="changeText(dialogue_bad)">
         Think about the court case. Click box to see conversation.
     </div>
-    <a href = "{{url_for('hom_file_2')}}">
+    <a href = "{{url_for('homicide')}}">
         <button id="continue">
             Continue 
         </button>
     </a>
     <script src="{{url_for('static', filename='listen_temp.js')}}"></script>
     <script>
-        dialogue_good = [
-        "<span class='blue-text'>Detective Reid:</span>  It's been two days since Ronald Faraday was convicted for the murder of his wife Becky Faraday, but something about that trial bothers me.", 
+        dialogue_bad = [
+        "<span class='blue-text'>Detective Reid:</span>  It's been two days since Ronald Faraday was convicted for the murder of his wife Becky Faraday.", 
         "image about blood trails",
         "<span class='blue-text'>Detective Reid:</span> They brought Officer Hazard in to talk about the missing blood trail photos, something about the camera malfunctioning. According to him, the Blue Star revealed a blood trail from the kitchen, through the hallway, onto the stairs.",
-        "<span class='blue-text'>Detective Reid:</span> But if the camera truly wasn't working at the time, why couldn't they wait for a replacement? Why go to court empty handed?",
         "image about slippers",
-        "<span class='blue-text'>Detective Reid:</span> Then they brought up Ronald's bloody slippers. Police found them in the closet with the victim's blood on it.",
-        "<span class='blue-text'>Detective Reid:</span> Yet there were no footprints to be found, and I doubt he was given enough time to do a thorough cleaning. And how the hell could he get blood on his slippers, but the rest of his clothes remained clean. The same clothes he was in fact wearing when last seen on those gas station cameras.",
+        "<span class='blue-text'>Detective Reid:</span> That combined with Ronald's bloody slippers that the police found in his closet with the victim's blood on it was more than enough to convict him.",
         "cuts to Patricia",
-        "<span class='blue-text'>Detective Reid:</span> Finally there was the testimony of Becky Faraday's close friend, Patricia Hollinger.",
-        "Flashback to Patricia Hollinger's testimony. <br> <span class='red-text'>Patricia Hollinger:</span> LIES AND MORE LIES FROM PATRICIA FIX THIS",
+        "<span class='blue-text'>Detective Reid:</span>  And to even further his guilt was the testimony of Becky Faraday's close friend, Patricia Hollinger.",
+        "Flashback to Patricia Hollinger's testimony. <br> <span class='green-text'>Prosecution Lawyer Ashley:</span> Ms.Hollinger, you and Becky Faraday were close friends, is that correct?",
+        "<span class='red-text'>Patricia Hollinger:</span> Yes we were very close friends. ",
         "<span class='blue-text'>Detective Reid:</span>  I think Ms. Hollinger is due for a follow up. Maybe that defense attorney, Schultz, knows something or feels the same.",
         "Almost as if Lawyer Schultz could hear Detective Reid's thoughts, Detective Reid recieves an email from Lawyer Schultz with a file attached titled: Something witty please help."
         ];

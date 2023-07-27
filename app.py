@@ -143,6 +143,7 @@ def process_zip():
     # call function from api.py and pass in zipcode
     zipcode = request.form.get('zipcode')
     session['zipcode'] = zipcode
+<<<<<<< Updated upstream
 
     exists = check_exists(zipcode)
     if exists == False:
@@ -165,17 +166,44 @@ def process_zip():
         print("We made it")
         choice_route = "/cyber_file"
     return {'key': choice_route}
+=======
+    print("Session - Zip: ", session['zipcode'])
+
+    exists = check_exists(zipcode)
+    if exists == ():
+        data = api_request(zipcode)
+        choice = case_choice(zipcode, data)
+        row = parser(zipcode, data, choice)
+        insert_data(row)
+
+        print(zipcode)
+        print("Your case is: ",choice)
+    else:
+        choice = exists[1]
+    # switch or if else to decide which route to redirect to
+    return {'key': choice}
+>>>>>>> Stashed changes
     # pass in result from function to redirect
     # return redirect_url()
 
 @app.route("/test_stats")
 def test_stats():
     zipcode = session.get('zipcode')
+<<<<<<< Updated upstream
     with engine.connect() as connection:
         stats = db.select(stats_data).where(stats_data.c.ZipCode == zipcode)
         connection.execute(stats)
     print(stats)
     return render_template("testing_stats.html", stats = stats)
+=======
+    print("Zippy: ", zipcode)
+    with engine.connect() as connection:
+        stats = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)
+        statistics = connection.execute(stats).fetchall()
+    print(statistics[0])
+    # statistics should always be populated with one item because that zipcode should have been inserted into the database
+    return render_template("testing_stats.html", stats = statistics[0])
+>>>>>>> Stashed changes
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

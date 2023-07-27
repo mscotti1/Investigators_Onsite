@@ -12,6 +12,10 @@ metadata = db.MetaData()
 # we using database as a pseudo cache
 stats_data = db.Table("stats_data", metadata,
                 db.Column("ZipCode", db.String(5), primary_key=True),
+<<<<<<< Updated upstream
+=======
+                db.Column("case", db.String(20)),
+>>>>>>> Stashed changes
 
                 db.Column("crime_overall", db.String(1)),
                 db.Column("violent_grade", db.String(1)),
@@ -46,9 +50,19 @@ metadata.create_all(engine)
 
 def check_exists(zipcode):
     with engine.connect() as connection:
+<<<<<<< Updated upstream
         exists = db.exists(stats_data).where(stats_data.c.ZipCode == zipcode).scalar()
         connection.execute(exists)
         return exists
+=======
+        # exists = db.exists(stats_data).where(stats_data.c.ZipCode == zipcode).scalar()
+        query = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)
+        exists = connection.execute(query).fetchall()
+        if len(exists) > 0:
+            print(exists[0])
+            return exists[0]
+        return ()
+>>>>>>> Stashed changes
 
 def api_request(zipcode):
     url = 'https://zylalabs.com/api/824/crime+data+by+zipcode+api/583/get+crime+rates+by+zip'
@@ -58,8 +72,14 @@ def api_request(zipcode):
     data = response.json()
     return data
 
+<<<<<<< Updated upstream
 def parser(zipcode, data):
     result = {'ZipCode': zipcode}
+=======
+def parser(zipcode, data, choice):
+    result = {'ZipCode': zipcode}
+    result.update({'case': choice})
+>>>>>>> Stashed changes
     expiry = datetime.now() + timedelta(days=7)
     yesterday = datetime.now() - timedelta(days = 1)
     result.update({'Expiry': expiry})
@@ -121,11 +141,14 @@ def expired():
         connection.execute(delt)
         connection.commit()
 
+<<<<<<< Updated upstream
 
 # insert_data(parser('46032'))
 # expired()
 
 
+=======
+>>>>>>> Stashed changes
 def case_choice(zipcode, data):
     if zipcode.isnumeric() and len(zipcode)==5:
         # Process the JSON data here
@@ -153,6 +176,7 @@ def case_choice(zipcode, data):
         choice = max(list)
 
         if choice == central:
+<<<<<<< Updated upstream
             return "central"
         elif choice == pam:
             return "homicide"
@@ -160,6 +184,15 @@ def case_choice(zipcode, data):
             return "burglary"
         elif choice == cyber:
             return "cyber"
+=======
+            return "/central"
+        elif choice == pam:
+            return "/hom/file"
+        elif choice == roof:
+            return "/file"
+        elif choice == cyber:
+            return "/cyber_file"
+>>>>>>> Stashed changes
 
     else:
         zipcode = input("please put valid zipcode: ")

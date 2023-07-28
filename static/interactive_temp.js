@@ -47,7 +47,7 @@ let ending = 1
 function set_end(end){
     if (end == 0){
         ending = 0;
-        console.log(ending)
+        console.log("Wha: ", ending)
         return;
     }
     ending = 1;
@@ -110,7 +110,7 @@ function scroll_talk_box_bottom() {
 //     button_continue.style.display = 'block';
 // }
 function reveal_continue(ending){
-    console.log(ending)
+    console.log("end: ", ending)
     if (ending == 0)
     {
         const button_continue = document.querySelector('#continue0');

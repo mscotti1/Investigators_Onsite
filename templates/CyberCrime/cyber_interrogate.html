@@ -16,7 +16,8 @@
         <div id="fortywidth">
             <div class="talk-box" onclick="node_tracker(current_node)">
                 <div id="start">
-                    Click to start interrogation.
+                    <span class="red-text"> Detective Reid </span><span class="blue-text"> Martin</span>
+                    <br>Click to start interrogation.
                 </div>
             </div>
             <div class="button-container">
@@ -27,21 +28,21 @@
                 <button class="option-button" id='option_L1_02' onclick="node_tracker(current_node.right_opt)"> Were you approached by anyone to commit the crime?</button>
 
                 <button class="option-button" id='option_L2_01' onclick="node_tracker(current_node.left_opt)"> Did you have any personal motives for targeting these specific banks?</button>
-                <button class="option-button" id='option_L2_02' onclick="node_tracker(current_node.right_opt); set_end(0)">How did you transfer the stolen money without getting caught?</button>
+                <button class="option-button" id='option_L2_02' onclick="node_tracker(current_node.right_opt)">How did you transfer the stolen money without getting caught?</button>
 
-                <button class="option-button" id='option_L2_11' onclick="node_tracker(current_node.left_opt); set_end(0)">  Did you use a specific malware to breach the bank's systems?</button>
+                <button class="option-button" id='option_L2_11' onclick="node_tracker(current_node.left_opt)">  Did you use a specific malware to breach the bank's systems?</button>
                 <button class="option-button" id='option_L2_12' onclick="node_tracker(current_node.right_opt); set_end(0)"> Do you have anything else to say?</button>
 
-                <button class="option-button" id='option_R1_01' onclick="node_tracker(current_node.left_opt)"> Do you have financial issues?</button>
-                <button class="option-button" id='option_R1_02' onclick="node_tracker(current_node.right_opt); set_end(0)">So you wanted to be rich?</button>
+                <button class="option-button" id='option_R1_01' onclick="node_tracker(current_node.left_opt);set_end(0)"> Do you have financial issues?</button>
+                <button class="option-button" id='option_R1_02' onclick="node_tracker(current_node.right_opt)">So you wanted to be rich?</button>
 
                 
             </div>
         </div>
     </div>
-        <a href = "{{url_for('hom_court_bad')}}">
+    <a href = "{{url_for('hom_court_bad')}}">
         <button id="continue0" class="continue">
-            Continue 
+            Continue
         </button>
     </a>
  <a href = "{{url_for('Cyber_crime')}}">
@@ -125,6 +126,7 @@
         ];
 
         const left_dia_2_12 = [
+            { sender: 'heard', text: "Do you have anything else to say?" },
             { sender: 'said', text: "I've told you everything" },
         ];
 

@@ -1,0 +1,36 @@
+{% extends "statistics_temp.html" %}
+{% block content %}
+<div class="container">
+    <div class="box box-left">
+        Looks like you didn't solve the case this time. :(
+    </div>
+
+    <div class="center-container">
+        <div class="box box-top-center">
+            <p>This game was based on the case:<br><b>The Murder of Betsy Faria</b></p>
+            <a href="https://www.stlmag.com/longform/pam-hupp/">Click here to learn more about the case</a>
+        </div>
+         <!-- The image container -->
+         <div class="image-container">
+            <img src="{{url_for('static', filename='images/mascott.jpg')}}" alt="Image" width="400px" height="450px">
+        </div>
+    </div>
+
+    <div class="box box-right">
+        <p>Things you can do to lower your chances of being a victim to murder</p>
+        <p>Things you can do to lower your chances of being a victim to murder</p>
+    </div>
+</div>
+<div class="button-container">
+    <div class="box-bottom-left">
+        <a href="{{url_for('level_select')}}">
+            <button> Level Select </button>
+        </a>
+    </div>
+    <div class="box-bottom-right">
+        <a href="{{url_for('home')}}">
+            <button> Home </button>
+        </a>
+    </div>
+</div>
+{% endblock content %}

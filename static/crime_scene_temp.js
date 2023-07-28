@@ -68,7 +68,9 @@ function changeImage() {
         image3.style.display = 'none';
 
         button_up.style.display = 'block';
-        button_right.style.display = 'block';
+        if (button_right.getAttribute('class') !=  'hidden'){
+            button_right.style.display = 'block';
+        }
         button_down.style.display = 'none';
         button_left.style.display = 'none';
 

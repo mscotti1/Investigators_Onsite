@@ -17,7 +17,8 @@ body {
     height: 100%;
     width: 100%;
     min-height: 100vh;
-    background: radial-gradient(#A5C9CA, 20%, #395B64);
+    /* background: radial-gradient(#A5C9CA, 20%, #395B64); */
+    background: radial-gradient(#869fb2ff, 20%, rgb(42, 81, 111));
     /* background: radial-gradient(#606060, 20%, #8B4000); */
     /* #606060 */
     position: relative;

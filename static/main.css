@@ -1,5 +1,9 @@
 body{
-    background-color: #263859;
+    /* background-color: #263859; */
+    /* color: #869fb2ff;
+    color: #395B64;
+    color: A5C9CA; */
+    background: radial-gradient(#869fb2ff, 20%, rgb(42, 81, 111));
 }
 .blue-text {
     color : rgb(16, 12, 248);

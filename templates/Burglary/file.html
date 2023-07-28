@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='file_template.css')}}">
+  </head>
+  <body>
+    <div class="folder">
+      <div class="folder-left">
+        <div class="paper">
+          <div id="p1" class="paper-content">
+            <div class="container-baseline">
+                <h1>The Roof Man </h1>  
+              <p><b>Summary: </b> 
+                A suspect is under investigation for conducting a series of armed robberies at more 
+                than 30 McDonald's restaurants across the country. The audacious criminal strikes 
+                during early hours, displaying a weapon to intimidate employees and swiftly making 
+                off with cash from the registers. Law enforcement agencies are pooling resources, 
+                analyzing surveillance footage, and following leads to apprehend the elusive suspect, 
+                who has managed to evade capture thus far. The public is urged to remain vigilant, 
+                and authorities are working diligently to bring an end to the crime spree that has 
+                left the community shaken and concerned for public safety.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="folder-right">
+        <div class="paper">
+          <div id="p2" class="paper-content">
+                <h1>Action && Suspense </h1>
+                <div class="container-center"> 
+                    <div class="stackPaper">
+                    <p>
+                        <b>Hint:</b>
+                        <br>Follow The</br>
+                        Evidence Trail! 
+                    </p>
+                    </div>
+                  <div class="container-center">
+                    <img
+                      src="../static/images/roofMan.jpg"
+                      width="150"
+                      height="150"
+                    />
+                  </div>
+                </div>
+                <div class="container-center">
+                    <img
+                      src="../static/images/mcDonalds.webp"
+                      width="295"
+                      height="200"
+                    />
+                  </div>
+            <br />
+            <!-- Use <br> to move to the next line -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="{{url_for('bug_crime_1')}}">
+        <button>
+            Continue
+        </button>
+    </a>
+  </body>
+</html>

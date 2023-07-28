@@ -14,7 +14,7 @@
         <div class="crime-screen">
             <img src="{{url_for('static', filename='images/Mcds1.jpeg')}}" alt="Game Image1" id="image1" width="100%" height="515">
             <img src="{{url_for('static', filename='images/kitchen_dark.jpeg')}}" alt="Game Image2" id="image2" style="display:none;" width="100%" height="515">
-            <img src="{{url_for('static', filename='images/bedroom_dark.jpeg')}}" alt="Game Image3" id="image3" style="display:none;" width="100%" height="515">
+            <img src="{{url_for('static', filename='images/mcdonalsBack.jpg')}}" alt="Game Image3" id="image3" style="display:none;" width="100%" height="515">
 
             <button id="up" onclick="display_image_3()"> ^ </button>
             <button id="right" onclick="display_image_2()"> >> </button>
@@ -22,7 +22,7 @@
             <button id="left" onclick="display_image_1()"> << </button>
 
             <button id="ev1" onclick="display_info(ev1)">
-                <img src = "{{url_for('static', filename='/images/body_outline.jpeg')}}" alt="evidence_1" width="100px" height="100px">
+                <img src = "{{url_for('static', filename='/images/manager.png')}}" alt="evidence_1" width="100px" height="100px">
             </button>
             <button id="ev2" onclick="display_info(ev2)" style="display: none;" class="hidden" >
                 <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_2" width="100px" height="100px">
@@ -36,10 +36,10 @@
             </button>
 
             <button id="ev5" onclick="display_info(ev5)">
-                <img src = "{{url_for('static', filename='images/body_outline.jpeg')}}" alt="evidence_5" width="100px" height="100px">
+                <img src = "{{url_for('static', filename='images/hole.png')}}" alt="evidence_5" width="100px" height="100px">
             </button>
             <button id="ev6" onclick="display_info(ev6)">
-                <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_6" width="100px" height="100px">
+                <img src = "{{url_for('static', filename='images/freezer.png')}}" alt="evidence_6" width="100px" height="100px">
             </button>
 
         </div>
@@ -61,12 +61,12 @@
         found_5 = false;
         found_6 = false;
         let info_list = [
-            "MANAGER",
-            "why", 
+            " According to the McDonald's manager, the suspect behind the armed robberies is described as a fit individual wearing a ski-mask and carrying a rifle. The suspect forced the employees into the freezer during the robbery, but curiously, he asked them if they wanted to bring their jackets with them.",
+            "", 
             "",
             "",
-            "ROOF HOLE",
-            "FREEZER",
+            "This hole appears to be a possible entry point for the suspect, indicating a well-planned and methodical approach to the crimes.",
+            "In the midst of the robbery, the suspect accidentally left the freezer door slightly open while locking the employees inside. One brave employee took advantage of the mistake, secretly called the police, leading to setting off a hot trail for the investigators to follow. A phone call appears and a man is heard Frolicking in the forest",
         ];
     </script>
 

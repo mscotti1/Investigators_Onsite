@@ -16,14 +16,6 @@ def home():
 def statistics():
     return render_template("statistics_temp.html")
 
-@app.route("/bug")
-def burglary():
-    return render_template("Burglary/Burglary.html")
-
-@app.route('/bug/crime_scene_1')
-def bug_crime_1():
-    return render_template("Burglary/crime_scene_1.html")
-
 ##### HOMICIDE ROUTES #####
 @app.route("/hom")
 def homicide():
@@ -113,17 +105,32 @@ def Cyber_file():
 def Cyber_file2():
     return render_template("CyberCrime/cyber_file2.html")
 
-@app.route("/level_select")
-def level_select():
-    return render_template("level_select.html")
 
-@app.route("/bug_crime2")
+##### BUG ROUTES #####
+@app.route('/bug/file')
+def bug_file():
+    return render_template("Burglary/file.html")
+
+@app.route('/bug/crime1')
+def bug_crime_1():
+    return render_template("Burglary/crime_scene_1.html")
+
+@app.route("/bug/crime2")
 def bug_crime2():
     return render_template("Burglary/crime_scene2.html")
 
-@app.route("/bug_interrogate")
+@app.route("/bug/int")
 def bug_int():
     return render_template("Burglary/interrogation.html")
+
+@app.route("/bug/stats")
+def burglary():
+    return render_template("Burglary/Burglary.html")
+
+##### OTEHR #####
+@app.route("/level_select")
+def level_select():
+    return render_template("level_select.html")
 
 @app.route("/file")
 def file():

@@ -130,9 +130,7 @@ def cyber_listen():
 @app.route("/cyber_file")
 def Cyber_file():
     return render_template("CyberCrime/cyber_file.html")
-@app.route("/cyber_file2")
-def Cyber_file2():
-    return render_template("CyberCrime/cyber_file2.html")
+
 
 
 ##### BUG ROUTES #####

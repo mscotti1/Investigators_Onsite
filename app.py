@@ -79,6 +79,10 @@ def interrogate_mta_two():
 @app.route("/file_mta")
 def file_mta():
     return render_template("MTA_Slasher/file_mta.html")
+
+@app.route("/stats_mta")
+def stats_mta():
+    return render_template("MTA_Slasher/MTA_Slasher_Stats.html")
 #################################################
 
 @app.route("/listen")
@@ -88,6 +92,10 @@ def interrogation():
 @app.route("/interrogation")
 def interactive():
     return render_template("interactive_temp.html")
+
+@app.route("/crime_scene")
+def crime_scene():
+    return render_template("crime_scene_temp.html")
 
 @app.route("/crime_scene")
 def crime_scene():

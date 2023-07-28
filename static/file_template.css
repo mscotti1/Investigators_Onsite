@@ -97,6 +97,8 @@ p {
   justify-content: center;
   align-items: flex-start;
   text-align: center;
+  font-family: 'Edu SA Beginner', cursive;
+
   /* Example: font-size: 18px; */
 
   background-image: url("../static/images/stackPaper.png");

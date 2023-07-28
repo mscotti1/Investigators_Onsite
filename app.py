@@ -103,9 +103,6 @@ def interactive():
 def crime_scene():
     return render_template("crime_scene_temp.html")
 
-@app.route("/crime_scene")
-def crime_scene():
-    return render_template("crime_scene_temp.html")
 
 ##### CYBER ROUTES #####
 @app.route("/cyber")

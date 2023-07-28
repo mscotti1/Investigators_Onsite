@@ -164,7 +164,6 @@ def process_zip():
 @app.route("/test_stats")
 def test_stats():
     zipcode = session.get('zipcode')
-
     print("Zippy: ", zipcode)
     with engine.connect() as connection:
         stats = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)

@@ -6,7 +6,28 @@
     </title>
     <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
     <link rel="stylesheet" href="{{url_for('static', filename='crime_scene_temp.css')}}">
-    
+    <style>
+        #ev1{
+            position: absolute;
+            left: 270px;
+            bottom: 300px;
+        }
+        #ev2{
+            position: absolute;
+            right: 550px;
+            bottom: 300px;
+        }
+        #ev4{
+            position: absolute;
+            right: 570px;
+            bottom: 275px;
+        }
+        #ev5{
+            position: absolute;
+            left: 170px;
+            bottom: 275px;
+        }
+    </style>
 </head>
 <body>
     <body>
@@ -21,7 +42,7 @@
             <button id="left" onclick="display_image_1()"> << </button>
 
             <button id="ev1" onclick="display_info(ev1)">
-                <img src = "{{url_for('static', filename='/images/body_outline.jpeg')}}" alt="evidence_1" width="100px" height="100px">
+                <img src = "{{url_for('static', filename='/images/officer.png')}}" alt="evidence_1" width="100px" height="200px">
             </button>
             <button id="ev2" onclick="display_info(ev2)">
                 <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_2" width="100px" height="100px">
@@ -31,11 +52,11 @@
                 <img src = "{{url_for('static', filename='images/body_outline.jpeg')}}" alt="evidence_3" width="100px" height="100px">
             </button>
             <button id="ev4" onclick="display_info(ev4)">
-                <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_4" width="100px" height="100px">
+                <img src = "{{url_for('static', filename='images/body_outline.jpeg')}}" alt="evidence_4" width="100px" height="100px">
             </button>
 
             <button id="ev5" onclick="display_info(ev5)">
-                <img src = "{{url_for('static', filename='images/body_outline.jpeg')}}" alt="evidence_5" width="100px" height="100px">
+                <img src = "{{url_for('static', filename='images/slippers.jpeg')}}" alt="evidence_5" width="100px" height="100px">
             </button>
             <button id="ev6" onclick="display_info(ev6)" class="hidden">
                 <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_6" width="100px" height="100px">

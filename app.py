@@ -104,7 +104,13 @@ def crime_scene():
 ##### CYBER ROUTES #####
 @app.route("/cyber")
 def Cyber_crime():
-    return render_template("CyberCrime/Cyber_crime.html")
+    zipcode = session.get('zipcode')
+    # print("Zippy: ", zipcode)
+    with engine.connect() as connection:
+        stats = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)
+        statistics = connection.execute(stats).fetchall()
+    # print(statistics[0])
+    return render_template("CyberCrime/Cyber_crime.html", stats=statistics[0])
 @app.route("/cyber_scene")
 def cyber_crime_scene():
     return render_template("CyberCrime/crime_scene_cyber.html")
@@ -142,7 +148,13 @@ def bug_int():
 
 @app.route("/bug/stats")
 def burglary():
-    return render_template("Burglary/Burglary.html")
+    zipcode = session.get('zipcode')
+    print("Zippy: ", zipcode)
+    with engine.connect() as connection:
+        stats = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)
+        statistics = connection.execute(stats).fetchall()
+    print(statistics[0])
+    return render_template("Burglary/Burglary.html", stats=statistics[0])
 
 ##### OTEHR #####
 @app.route("/level_select")

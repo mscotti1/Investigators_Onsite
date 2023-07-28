@@ -16,18 +16,16 @@ def home():
 def statistics():
     return render_template("statistics_temp.html")
 
-@app.route("/bug")
-def burglary():
-    return render_template("Burglary/Burglary.html")
-
-@app.route('/bug/crime_scene_1')
-def bug_crime_1():
-    return render_template("Burglary/crime_scene_1.html")
-
 ##### HOMICIDE ROUTES #####
 @app.route("/hom")
 def homicide():
-    return render_template("Homicide/homicide.html")
+    zipcode = session.get('zipcode')
+    # print("Zippy: ", zipcode)
+    with engine.connect() as connection:
+        stats = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)
+        statistics = connection.execute(stats).fetchall()
+    print(statistics[0])
+    return render_template("Homicide/homicide.html", stats = statistics[0])
 @app.route("/hom/file")
 def hom_file():
     return render_template("Homicide/file.html")
@@ -59,9 +57,6 @@ def hom_interrogate_2():
 def hom_court_2():
     return render_template("Homicide/court_2.html")
 #####################################################
-@app.route("/hom/crime_2")
-def hom_crime_2():
-    return render_template("Homicide/crime_scene_2.html")
 
 
 # MTA SLAHSER ROUTES
@@ -93,6 +88,7 @@ def interactive():
 def crime_scene():
     return render_template("crime_scene_temp.html")
 
+##### CYBER ROUTES #####
 @app.route("/cyber")
 def Cyber_crime():
     return render_template("CyberCrime/Cyber_crime.html")
@@ -113,29 +109,37 @@ def Cyber_file():
 def Cyber_file2():
     return render_template("CyberCrime/cyber_file2.html")
 
-@app.route("/level_select")
-def level_select():
-    return render_template("level_select.html")
 
-@app.route("/bug_crime2")
+##### BUG ROUTES #####
+@app.route('/bug/file')
+def bug_file():
+    return render_template("Burglary/file.html")
+
+@app.route('/bug/crime1')
+def bug_crime_1():
+    return render_template("Burglary/crime_scene_1.html")
+
+@app.route("/bug/crime2")
 def bug_crime2():
     return render_template("Burglary/crime_scene2.html")
 
-@app.route("/bug_interrogate")
+@app.route("/bug/int")
 def bug_int():
     return render_template("Burglary/interrogation.html")
+
+@app.route("/bug/stats")
+def burglary():
+    return render_template("Burglary/Burglary.html")
+
+##### OTEHR #####
+@app.route("/level_select")
+def level_select():
+    return render_template("level_select.html")
 
 @app.route("/file")
 def file():
     return render_template("file_template.html")
 
-# @app.route("/api", methods=["POST"])
-# def test():
-    # print("working")
-    # zipcode = request.form.get('zipcode')
-    # print(zipcode)
-    # process_zip(zipcode)
-    # return "hello"
 
 @app.route("/process_zip", methods = ["POST"])
 def process_zip():

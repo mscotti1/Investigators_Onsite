@@ -10,10 +10,10 @@
 </head>
 <body>
     <div class="listen-screen">
-        <img src="{{url_for('static', filename='images/random_interrogate.jpg')}}" alt="Game Image" width="100%" height="515">
+        <img src="{{url_for('static', filename='images/court.jpeg')}}" alt="Game Image" width="100%" height="515">
     </div>
     <div class="text-box" onclick="changeText(dialogue)">
-        Think about the second court case. Click box to see conversation.
+        After the court case. Click box to see thoughts.
     </div>
     <a href = "{{url_for('homicide')}}">
         <button id="continue">
@@ -24,16 +24,11 @@
     <script>
         dialogue = [
         "<span class='blue-text'>Detective Reid:</span> It's been some months, but we were finally able to put Patricia Hollinger in jail and free Ronald Faraday. You would think that after getting away with two murders, a woman would know when to quit.", 
-        "serial numbers",
         "<span class='blue-text'>Detective Reid:</span> First there were the serial numbers. The money found on the body was suppose to have been given in advanced by Mr. Faraday, but the serial numbers matched the money found in Ms. Hollinger's wallet, so they had to be withdrawn at the same time.",
-        "falsified note",
-        "<span class='blue-text'>Detective Reid:</span> Then there was the note that detailed the entire crime, or at least the story Ms. Hollinger was trying to push. If only she realized that the “woodpile” she mentioned only came into existence after Mr. Faraday was in jail. Maybe then, we wouldn't have checked the cameras and caught her passing by the property on the way to the bank.",
+        "<span class='blue-text'>Detective Reid:</span> Then there was the note that detailed the entire crime, or at least the story Ms. Hollinger was trying to push. If only she realized that the “woodpile” she mentioned only came into existence after Mr. Faraday was in jail. Maybe then we wouldn't have checked the cameras and caught her passing by the property on the way to the bank.",
         "<span class='blue-text'>Detective Reid:</span> That got her for the murder of Niall Humpenberger, and the calm and cool facade she had began to crumble from there.",
-        "balcony railing",
         "<span class='blue-text'>Detective Reid:</span> When discussing how the balcony railing showed there was a struggle during her mother's death, she started to yell and curse at the lawyers for the pressure they were putting on her.",
-        "fake email",
-        "<span class='blue-text'>Detective Reid:</span> By the time we confronted her about Becky's death and mentioned the fake email where she made up Mr. Faraday's abuse history, Ms. Hollinger became absolutely hysterical. And not even an hour after she was found guilty and arrested, did she stab herself in her own neck and wrists with a pen. Unfortunately for her, she lived. Seems like her days of killing are truly over.",
-        "<span class='blue-text'>Detective Reid:</span> But now that her case is out of the way, I have to go help Mr. Faraday once again. Turns out he wants to file a civil case against the officers involved his wife's death. Says they fabricated evidence, ignored exonerating evidence, and failed to investigate the other obvious suspect. Seems about right to me.",
+        "<span class='blue-text'>Detective Reid:</span> By the time we confronted her about Becky's death and mentioned the fake email where she made up Mr. Faraday's abuse history, Ms. Hollinger became absolutely hysterical. And then not even an hour after she was found guilty and arrested, she stabbed herself in her own neck and wrists with a pen. Unfortunately for her, she lived. Seems like her days of killing are truly over.",
         "<span class='blue-text'>Detective Reid:</span> But now that her case is out of the way, I have to go help Mr. Faraday once again. Turns out he wants to file a civil case against the officers involved his wife's death. Says they fabricated evidence, ignored exonerating evidence, and failed to investigate the other obvious suspect. Seems about right to me.",
         "<span class='blue-text'>Detective Reid:</span> Well with how many twists and turns that last case had, I would say that this one is going to be a piece-of-cake."
         ]

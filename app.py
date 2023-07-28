@@ -44,6 +44,9 @@ def hom_court_bad():
 @app.route("/hom/court_1")
 def hom_court_1():
     return render_template("Homicide/court_1.html")
+@app.route("/hom/bad.html")
+def hom_bad():
+    return render_template("Homicide/bad.html")
 @app.route("/hom/file_2")
 def hom_file_2():
     return render_template("Homicide/file_2.html")

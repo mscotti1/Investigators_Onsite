@@ -21,14 +21,14 @@
                 </div>
             </div>
             <div class="button-container">
-                <button class="option-button" id='option_L0_1' onclick="node_tracker(current_node.left_opt)"> You are going to jail</button>
-                <button class="option-button" id='option_R0_1' onclick="node_tracker(current_node.right_opt)">I understand ;)</button>
+                <button class="option-button" id='option_L0_1' onclick="node_tracker(current_node.left_opt)">Can you tell me about this note police found?</button>
+                <button class="option-button" id='option_R0_1' onclick="node_tracker(current_node.right_opt)">Now why did he try to steal from you?</button>
                 
-                <button class="option-button" id='option_L1_1' onclick="node_tracker(current_node.left_opt)"> Left more 1</button>
-                <button class="option-button" id='option_L1_2' onclick="node_tracker(current_node.right_opt)">Left more 2</button>
+                <button class="option-button" id='option_L1_01' onclick="node_tracker(current_node.left_opt)">It mentioned this "woodpile".</button>
+                <button class="option-button" id='option_L1_02' onclick="node_tracker(current_node.right_opt)">It must be nice to have your mother's blood money.</button>
 
-                <button class="option-button" id='option_R1_1' onclick="node_tracker(current_node.left_opt)"> Right more 1</button>
-                <button class="option-button" id='option_R1_2' onclick="node_tracker(current_node.right_opt)">Right more 2</button>
+                <button class="option-button" id='option_R1_01' onclick="node_tracker(current_node.left_opt)">So how about that trust fund?</button>
+                <button class="option-button" id='option_R1_02' onclick="node_tracker(current_node.right_opt)">We know about your mother.</button>
             </div>
         </div>
     </div>
@@ -49,42 +49,79 @@
         ];
 
         const right_dia_1 = [
-            { sender: 'heard', text: "NEW WORDS" },
-            { sender: 'said', text: "AWESOME" },
-            { sender: 'heard', text: "Please bestie ;)" }
-        ];
+            { sender: 'said', text: "Now why did he try to steal from you?" },
+            { sender: 'heard', text: "The man said something about getting the rest of Faraday's money." },
+            { sender: 'heard', text: "I think he was after the life insurance money I got from Becky's death." },
+            { sender: 'said', text: "Yes, we found a note in his pockets as well as $1000 in cash." },
+            { sender: 'said', text: "The note seems to imply that Mr. Humpenberger was given that money by Mr. Faraday to kill you and collect $10,000." },
+            { sender: 'heard', text: "See?" },
+            { sender: 'heard', text: "What did I tell you, Detective?" },
+            { sender: 'heard', text: "These men have no shame when it comes to their greed." },
+            { sender: 'said', text: "Oh, I don't think it's just these men who lack any shame Mrs. Hollinger." },
+            { sender: 'said', text: "You see, there was something unusual with the money he had." },
+            { sender: 'heard', text: "Unusual?" },
+            { sender: 'heard', text: "How so?" },
+            { sender: 'said', text: "Well, the serial numbers found on the money matched the money found in your wallet." },
+            { sender: 'said', text: "This means that the money in his pocket and the money from your wallet were withdrawn at the same time." },
+            { sender: 'heard', text: "What are you trying to suggest, Detective?" },
+            { sender: 'said', text: "I'm saying that you are trying to frame Mr. Faraday once again to gain innocence over the death of another individual." },
+            { sender: 'heard', text: "“Once again”?" },
+            { sender: 'heard', text: "“Another”?" },
+            { sender: 'heard', text: "What in the world are you talking about?" }
 
-        const left_dia_1 = [
-            { sender: 'said', text: "-_-" },
-            { sender: 'said', text: "NEW WORDS" },
-            { sender: 'said', text: "TUBULAR" },
-            { sender: 'heard', text: "Boooo. I don't wanna go to jail... T_T" }
         ];
 
         const right_dia_1_01 = [
-            { sender: 'heard', text: "NEW WORDS" },
-            { sender: 'said', text: "RAD" },
-            { sender: 'heard', text: "Please bestie ;)" }
+            { sender: 'said', text: "So how about that trust fund?" },
+            { sender: 'heard', text: "Oh not you too" },
+            { sender: 'heard', text: "Her relatives are bad enough as it is." },
+            { sender: 'heard', text: "Don't they understand that I had a dead mother to deal with?" },
+            { sender: 'said', text: "But were you ever planning to help the kids or did you make it so only you would profit from her death?" },
+            { sender: 'heard', text: "This targeting is really starting to hurt my feelings." },
+            { sender: 'heard', text: "It's not like I put a gun to her head and make her fill out the life insurance form." },
+            { sender: 'heard', text: "Life just happens and now the money's gone." },
+            { sender: 'heard', text: " It's all circumstantial really." },
+            { sender: 'said', text: "Perhaps, but it seems that you have quite the track record in lying." }
         ];
 
         const right_dia_1_02 = [
-            { sender: 'heard', text: "NEW WORDS" },
-            { sender: 'said', text: "COOL" },
-            { sender: 'heard', text: "Please bestie ;)" }
+            { sender: 'said', text: "We know about your mother." },
+            { sender: 'said', text: "You killed her for the half a million dollars you gain from her death." },
+            { sender: 'heard', text: "I am innocent." }
+        ];
+
+
+        const left_dia_1 = [
+            { sender: 'said', text: "Can you tell me about this note police found?" },
+            { sender: 'said', text: "The note was found on the body of Mr. Humpenberger and seems to be written by Ronald Faraday." },
+            { sender: 'said', text: "Says something about wanting some life insurance money." },
+            { sender: 'heard', text: "Yes, that man was trying to get me to give him the $10,000 I got from Becky's death." },
+            { sender: 'heard', text: "Please, like I still have that money, especially after what happened to my poor mother." },
+            { sender: 'said', text: "Ah yes, your mother, we'll get to that later." },
+            { sender: 'said', text: "But I wanted to ask you about this note because there's something about it that's bothering me." },
+            { sender: 'heard', text: "Yes?" },
+            { sender: 'heard', text: " What is it?" }
         ];
 
         const left_dia_1_01 = [
-            { sender: 'said', text: "-_-" },
-            { sender: 'said', text: "NEW WORDS" },
-            { sender: 'said', text: "JWOO" },
-            { sender: 'heard', text: "Boooo. I don't wanna go to jail... T_T" }
+            { sender: 'said', text: "It mentioned this 'woodpile'." },
+            { sender: 'heard', text: "“Woodpile”?" },
+            { sender: 'heard', text: " What's so weird about that?" },
+            { sender: 'said', text: "What's so weird is that this supposed woodpile was only present after Mr. Faraday was put in jail." },
+            { sender: 'said', text: "When renovations were being done on the house." },
+            { sender: 'heard', text: "Well, couldn't he have been informed by some friend or family about what was going on with his old house?" },
+            { sender: 'said', text: "He could have." },
+            { sender: 'said', text: "But you see this triggered some suspicion with the authorities, so they checked some security cameras that were near the property." },
+            { sender: 'said', text: "And you may not believe this, but they actually saw you driving by the property and were able to follow your trail all the way to the bank." },
+            { sender: 'heard', text: "You're lying." },
+            { sender: 'said', text: "No I'm not because this isn't the first time you lied over money, is it?" },
         ];
 
         const left_dia_1_02 = [
-            { sender: 'said', text: "-_-" },
-            { sender: 'said', text: "NEW WORDS" },
-            { sender: 'said', text: "YURRR" },
-            { sender: 'heard', text: "Boooo. I don't wanna go to jail... T_T" }
+            { sender: 'said', text: "It must be nice to have your mother's blood money." },
+            { sender: 'said', text: "All of these cases involve you getting a lot of money at the end of them." },
+            { sender: 'said', text: "I find that very suspicious." },
+            { sender: 'heard', text: "I don;t know what you are insinuating." }
         ];
 
         const right_1_02 = new Script(right_dia_1_02, null,null, null, null);
@@ -93,8 +130,8 @@
         const left_1_02 = new Script(left_dia_1_02, null, null, null, null);
         const left_1_01 = new Script(left_dia_1_01, null, null, null, null);
 
-        const right_1 = new Script(right_dia_1, right_1_01, right_1_02, "#option_R1_1", "#option_R1_2");
-        const left_1 = new Script(left_dia_1, left_1_01, left_1_02, "#option_L1_1", "#option_L1_2");
+        const right_1 = new Script(right_dia_1, right_1_01, right_1_02, "#option_R1_01", "#option_R1_02");
+        const left_1 = new Script(left_dia_1, left_1_01, left_1_02, "#option_L1_01", "#option_L1_02");
 
         const root = new Script(dialogue_start, left_1, right_1, '#option_L0_1', '#option_R0_1');
 

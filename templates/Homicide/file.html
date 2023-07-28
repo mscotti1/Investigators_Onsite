@@ -25,13 +25,13 @@
                 <b>911 Call Transcript:</b>
                 <ul>
                     <li> 911 Operator: 911 what's your emergency? </li>
-                    <li> Ronald Faraday: “My wife killed herself” </li>
+                    <li> Ronald Faraday: My wife killed herself </li>
                     <li> 911: Where are you? </li>
-                    <li> RF: “I am at home in XXX address” </li>
+                    <li> RF: I am at home at XXX address </li>
                     <li> 911: What is your name? </li>
                     <li> RF: Ronald Faraday </li>
                     <li> 911: Tell me exactly what happened. </li>
-                    <li> RF: “I came home and she and she…my God, oh my God, oh my God. What do I do? ” </li>
+                    <li> RF: I came home and she and she…my God, oh my God, oh my God. What do I do? </li>
                     <li> 911: Try to remain calm. Help is on the way. </li>
                 </ul>
             </div>
@@ -42,15 +42,20 @@
         <div class="paper">
           <div id="p2" class="paper-content">
             <div class="container-center" style="height:50%">
-                <div>
+                <div style="max-width: 50%; width:auto;">
                     <img
-                    src="{{url_for('static', filename='images/slippersPoloraid.png')}}"
-                    width="200"
-                    height="200">
+                    src="{{url_for('static', filename='images/blank_polaroid.png')}}""
+                    height="200px">
                 </div>
                 <div class="stackPaper">
                     <p>camera malfunctioned so the crime scene photos did not develop</p>
-                  </div>
+                </div>
+                <div>
+                    <img
+                    src="{{url_for('static', filename='images/house_police_tape.jpeg')}}"
+                    height="200px"
+                    style="border-radius: 15px; margin-top: 20px">
+                </div>
              </div>
               
           </div>

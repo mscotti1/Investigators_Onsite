@@ -118,6 +118,11 @@
     cursor: pointer;
     display: none;
 }
+button{
+    background-color: transparent;
+    padding: 0;
+    border: none;
+}
 
 #continue{
     background-color: #1864f3;

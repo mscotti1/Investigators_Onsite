@@ -10,12 +10,12 @@
 </head>
 <body>
     <div class="listen-screen">
-        <img src="{{url_for('static', filename='images/random_interrogate.jpg')}}" alt="Game Image" width="100%" height="515">
+        <img src="{{url_for('static', filename='images/court.jpeg')}}" alt="Game Image" width="100%" height="515">
     </div>
     <div class="text-box" onclick="changeText(dialogue_bad)">
-        Think about the court case. Click box to see conversation.
+        After the court case. Click box to see thoughts.
     </div>
-    <a href = "{{url_for('homicide')}}">
+    <a href = "{{url_for('hom_bad')}}">
         <button id="continue">
             Continue 
         </button>
@@ -24,13 +24,10 @@
     <script>
         dialogue_bad = [
         "<span class='blue-text'>Detective Reid:</span>  It's been two days since Ronald Faraday was convicted for the murder of his wife Becky Faraday.", 
-        "image about blood trails",
         "<span class='blue-text'>Detective Reid:</span> They brought Officer Hazard in to talk about the missing blood trail photos, something about the camera malfunctioning. According to him, the Blue Star revealed a blood trail from the kitchen, through the hallway, onto the stairs.",
-        "image about slippers",
         "<span class='blue-text'>Detective Reid:</span> That combined with Ronald's bloody slippers that the police found in his closet with the victim's blood on it was more than enough to convict him.",
-        "cuts to Patricia",
         "<span class='blue-text'>Detective Reid:</span>  And to even further his guilt was the testimony of Becky Faraday's close friend, Patricia Hollinger.",
-        "Flashback to Patricia Hollinger's testimony. <br> <span class='green-text'>Prosecution Lawyer Ashley:</span> Ms.Hollinger, you and Becky Faraday were close friends, is that correct?",
+        "Flashback to Patricia Hollinger's testimony: <br> <span class='green-text'>Prosecution Lawyer Ashley:</span> Ms.Hollinger, you and Becky Faraday were close friends, is that correct?",
         "<span class='red-text'>Patricia Hollinger:</span>  Yes. We became acquainted through work, but became close friends when she was going through chemotherapy. I went to all of her chemo sessions for support. ",
         "<span class='green-text'>Prosecution Lawyer Ashley:</span> You were so close in fact that she ended up signing over her life insurance to you, is that right?",
         "<span class='red-text'>Patricia Hollinger:</span> Absolutely correct. Yes.",

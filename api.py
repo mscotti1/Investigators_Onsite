@@ -159,7 +159,7 @@ def case_choice(zipcode, data):
         elif choice == pam:
             return "/hom/file"
         elif choice == roof:
-            return "/file"
+            return "/bug/file"
         elif choice == cyber:
             return "/cyber_file"
         

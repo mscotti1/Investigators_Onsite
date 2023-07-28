@@ -24,7 +24,7 @@ def homicide():
     with engine.connect() as connection:
         stats = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)
         statistics = connection.execute(stats).fetchall()
-    print(statistics[0])
+    # print(statistics[0])
     return render_template("Homicide/homicide.html", stats = statistics[0])
 @app.route("/hom/file")
 def hom_file():
@@ -82,7 +82,13 @@ def file_mta():
 
 @app.route("/stats_mta")
 def stats_mta():
-    return render_template("MTA_Slasher/MTA_Slasher_Stats.html")
+    zipcode = session.get('zipcode')
+    # print("Zippy: ", zipcode)
+    with engine.connect() as connection:
+        stats = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)
+        statistics = connection.execute(stats).fetchall()
+    # print(statistics[0])
+    return render_template("MTA_Slasher/MTA_Slasher_Stats.html", stats=statistics[0])
 #################################################
 
 @app.route("/listen")
@@ -149,11 +155,11 @@ def bug_int():
 @app.route("/bug/stats")
 def burglary():
     zipcode = session.get('zipcode')
-    print("Zippy: ", zipcode)
+    # print("Zippy: ", zipcode)
     with engine.connect() as connection:
         stats = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)
         statistics = connection.execute(stats).fetchall()
-    print(statistics[0])
+    # print(statistics[0])
     return render_template("Burglary/Burglary.html", stats=statistics[0])
 
 ##### OTEHR #####

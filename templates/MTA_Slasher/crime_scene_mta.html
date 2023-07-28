@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Crime Scene - Investigators Onsite
+    </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='crime_scene_temp.css')}}">
+    
+</head>
+<body>
+    <body>
+        <div class="crime-screen">
+            <img src="{{url_for('static', filename='images/mta_crime_scene.jpeg')}}" alt="Game Image1" id="image1" width="100%" height="515">
+            <img src="{{url_for('static', filename='images/mta_turnstile.jpeg')}}" alt="Game Image2" id="image2" style="display:none;" width="100%" height="515">
+            <img src="{{url_for('static', filename='images/hospital_room.jpeg')}}" alt="Game Image3" id="image3" style="display:none;" width="100%" height="515">
+
+            <button id="up" onclick="display_image_3()"> ^ </button>
+            <button id="right" onclick="display_image_2()"> >> </button>
+            <button id="down" onclick="display_image_1()"> v </button>
+            <button id="left" onclick="display_image_1()"> << </button>
+
+            <button id="ev1" onclick="display_info(ev1)">
+                <img src = "{{url_for('static', filename='/images/mta_intro.jpeg')}}" alt="evidence_1" width="100px" height="100px">
+            </button>
+            <button id="ev2" onclick="display_info(ev2)">
+                <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_2" width="100px" height="100px">
+            </button>
+
+            <button id="ev3" onclick="display_info(ev3)" class="hidden">
+                <img src = "{{url_for('static', filename='images/body_outline.jpeg')}}" alt="evidence_3" width="100px" height="100px">
+            </button>
+            <button id="ev4" onclick="display_info(ev4)">
+                <img src = "{{url_for('static', filename='images/security_camera.png')}}" alt="evidence_4" width="100px" height="100px">
+            </button>
+
+            <button id="ev5" onclick="display_info(ev5)">
+                <img src = "{{url_for('static', filename='images/eyewitness.jpeg')}}" alt="evidence_5" width="100px" height="100px">
+            </button>
+            <button id="ev6" onclick="display_info(ev6)" class="hidden">
+                <img src = "{{url_for('static', filename='images/blood_splatter.png')}}" alt="evidence_6" width="100px" height="100px">
+            </button>
+
+        </div>
+        <div class="info-box">
+            Currently in the MTA Subway Station. Click on evidence to get more information.
+        </div>
+
+        <a href = "{{url_for('listen_scene_mta')}}">
+            <button id="continue">
+                Continue 
+            </button>
+        </a>
+        
+    <script src="{{url_for('static', filename='main.js')}}"></script>
+    <script src="{{url_for('static', filename='crime_scene_temp.js')}}"></script>
+    <script>
+        found_3 = true;
+        found_6 = true;
+        let info_list = [
+            "<span class='blue-text'></span> Detective Reid arrives at the crime scene where Officer Johnson is already present. As they gather evidence and interview witnesses, they remain resolute in their mission to stop the perpetrator from striking again. <br> <span class='green-text'>Officer Johnson:</span> This is where the last victim was found. The station was evacuated, but we've got a few witnesses we're interviewing. Backup is on the way, and I've also informed the forensic team. They should be here any minute. <br> <span class='blue-text'>Detective Reid:</span> We need to preserve all possible evidence. Keep a close eye on the witnesses.We need their statements, and any detail, no matter how small, could be crucial.",
+            "The officers found blood on the steps of the train station. It appears to be trailing in a steady pattern, suggesting that the victim was in motion while bleeding. The bloodstains are consistent with a slashing wound, indicating a sharp-edged weapon was used in the attack, likely a knife or a blade. ", 
+            "gnxsbn.",
+            "The suspected Manhattan subway slasher had been caught on camera. The footage depicted a man wearing a distinctive Boston Red Sox cap and a white t-shirt. He was seen brazenly jumping the turnstile at the Brooklyn Bridge-City Hall station right after viciously slashing his third victim in the leg with a knife.",
+            "Eyewitness accounts from the victims revealed a distressing pattern. The suspect, a silent and deliberate individual, targeted three women in separate attacks within a short timeframe. He inflicted deep slashing wounds on their legs with a sharp object. The victims' descriptions provided crucial details, intensifying our efforts to identify and apprehend the dangerous NYC Slasher.",
+        ];
+    </script>
+
+</body>
+</html>

@@ -1,7 +1,12 @@
-from flask import Flask, render_template, request, jsonify, redirect, url_for
-from api import api_function, insert_data, expired
+from flask import Flask, render_template, request, jsonify, redirect, url_for, session
+from flask_session import Session
+from api import api_request, insert_data, expired, parser, case_choice, stats_data, engine, check_exists
+import sqlalchemy as db
 
 app = Flask(__name__)
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -59,10 +64,22 @@ def hom_crime_2():
     return render_template("Homicide/crime_scene_2.html")
 
 
+# MTA SLAHSER ROUTES
+@app.route("/crime_scene_mta")
+def crime_scene_mta():
+    return render_template("MTA_Slasher/crime_scene_mta.html")
 
-@app.route("/central")
-def Central_Park():
-    return render_template("CentralPark/Central_Park.html")
+@app.route("/listen_mta")
+def listen_scene_mta():
+    return render_template("MTA_Slasher/listening_mta.html")
+
+@app.route("/interrogate_mta")
+def interrogate_mta():
+    return render_template("MTA_Slasher/interrogation_mta.html")
+
+@app.route("/interrogate_mta2")
+def interrogate_mta_two():
+    return render_template("MTA_Slasher/interrogation_mta2.html")
 
 @app.route("/listen")
 def interrogation():
@@ -126,27 +143,35 @@ def process_zip():
     # read from a form that Maymouna sends to this route 
     # call function from api.py and pass in zipcode
     zipcode = request.form.get('zipcode')
-    insert_data(zipcode)
+    session['zipcode'] = zipcode
+    print("Session - Zip: ", session['zipcode'])
 
-    choice = api_function(zipcode)
-    print(zipcode)
-    print("Your case is: ",choice)
-    
+    exists = check_exists(zipcode)
+    if exists == ():
+        data = api_request(zipcode)
+        choice = case_choice(zipcode, data)
+        row = parser(zipcode, data, choice)
+        insert_data(row)
+
+        print(zipcode)
+        print("Your case is: ",choice)
+    else:
+        choice = exists[1]
     # switch or if else to decide which route to redirect to
-    choice_route = ""
-
-    if choice == "central":
-        choice_route = "/central"
-    elif choice == "homicide":
-        choice_route = "/hom/file"
-    elif choice == "burglary":
-        choice_route = "/file"
-    elif choice == "cyber":
-        print("We made it")
-        choice_route = "/cyber_file"
-    return {'key': choice_route}
+    return {'key': choice}
     # pass in result from function to redirect
     # return redirect_url()
+
+@app.route("/test_stats")
+def test_stats():
+    zipcode = session.get('zipcode')
+    print("Zippy: ", zipcode)
+    with engine.connect() as connection:
+        stats = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)
+        statistics = connection.execute(stats).fetchall()
+    print(statistics[0])
+    # statistics should always be populated with one item because that zipcode should have been inserted into the database
+    return render_template("testing_stats.html", stats = statistics[0])
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port = 8000)

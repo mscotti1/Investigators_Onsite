@@ -8,7 +8,6 @@ const paper2 = document.querySelector("#p2");
 const paper3 = document.querySelector("#p3");
 const paper4 = document.querySelector("#p4");
 const paper5 = document.querySelector("#p5");
-const paper6 = document.querySelector("#p6");
 
 // Event Listener
 prevBtn.addEventListener("click", goPrevPage);
@@ -16,7 +15,7 @@ nextBtn.addEventListener("click", goNextPage);
 
 // Business Logic
 let currentLocation = 1;
-let numOfPapers = 6;
+let numOfPapers = 5;
 let maxLocation = numOfPapers + 1;
 
 function openBook() {
@@ -71,14 +70,7 @@ function goNextPage() {
                 break;
             case 5:
                 paper5.classList.add("flipped");
-                setTimeout(function() {
-                    paper5.style.zIndex = 0;
-                    console.log("This line will execute after 0.5 seconds.");
-                  }, 250); // 500 milliseconds = 0.5 seconds
-                break;
-            case 6:
-                paper6.classList.add("flipped");
-                paper6.style.zIndex = 0;
+                paper5.style.zIndex = 0;
                 closeBook(false);
                 break;
             default:
@@ -114,21 +106,13 @@ function goPrevPage() {
                   }, 500); // 500 milliseconds = 0.5 seconds
                 break;
             case 6:
-                paper5.style.zIndex = 2;
+                openBook();
+                paper5.style.zIndex = 1;
                 setTimeout(function() {
-                    paper5.style.zIndex = 2;
+                    paper5.style.zIndex = 1;
                     console.log("This line will execute after 0.5 seconds.");
                   }, 250); // 500 milliseconds = 0.5 seconds
                 paper5.classList.remove("flipped");
-                break;
-            case 7:
-                openBook();
-                paper6.style.zIndex = 1;
-                setTimeout(function() {
-                    paper6.style.zIndex = 1;
-                    console.log("This line will execute after 0.5 seconds.");
-                  }, 250); // 500 milliseconds = 0.5 seconds
-                paper6.classList.remove("flipped");
                 break;
             default:
                 throw new Error("unkown state");

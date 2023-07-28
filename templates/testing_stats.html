@@ -1,1 +1,137 @@
-{{stats}}
+{% extends "statistics_temp.html" %}
+{% block content %}
+<div class="container">
+    <div class="box box-left">
+        <table id="stats">
+            <tr style="background-color: bisque;">
+                <h3>Crimes Statistics In Your Area</h3>
+            <tr>
+                <td> Zipcode </td>
+                <td> {{stats[0]}} </td>
+            </tr>
+            <tr>
+                <td> Crime Grade Overall </td>
+                <td> {{stats[2]}} </td>
+            </tr>
+            <tr>
+                <td> Violent Crime Grade </td>
+                <td> {{stats[3]}} </td>
+            </tr>
+            <tr>
+                <td> Property Crime Grade </td>
+                <td> {{stats[4]}} </td>
+            </tr>
+            <tr>
+                <td> Other Crime Grade </td>
+                <td> {{stats[5]}} </td>
+            </tr>
+            <tr>
+                <td> Fact </td>
+                <td> {{stats[6]}} </td>
+            </tr>
+            <tr>
+                <td> Risk Detail </td>
+                <td> {{stats[7]}} </td>
+            </tr>
+            <tr>
+                <td> Violent Crime Rate </td>
+                <td> {{stats[8]}} </td>
+            </tr>
+            <tr>
+                <td> Assault Crime Rate </td>
+                <td> {{stats[9]}} </td>
+            </tr>
+            <tr>
+                <td> Robbery Crime Rate </td>
+                <td> {{stats[10]}} </td>
+            </tr>
+            <tr>
+                <td> Rape Crime Rate </td>
+                <td> {{stats[11]}} </td>
+            </tr>
+            <tr>
+                <td> Murder Crime Rate </td>
+                <td> {{stats[12]}} </td>
+            </tr>
+            <tr>
+                <td> Property Crime Rate </td>
+                <td> {{stats[13]}} </td>
+            </tr>
+            <tr>
+                <td> Theft Crime Rate </td>
+                <td> {{stats[14]}} </td>
+            </tr>
+            <tr>
+                <td> Vehicle Theft Crime Rate </td>
+                <td> {{stats[15]}} </td>
+            </tr>
+            <tr>
+                <td> Burglary Crime Rate </td>
+                <td> {{stats[16]}} </td>
+            </tr>
+            <tr>
+                <td> Arson Crime Rate </td>
+                <td> {{stats[17]}} </td>
+            </tr>
+            <tr>
+                <td> Other Crime Rate </td>
+                <td> {{stats[18]}} </td>
+            </tr>
+            <tr>
+                <td> Kiddnapping Crime Rate </td>
+                <td> {{stats[19]}} </td>
+            </tr>
+            <tr>
+                <td> Drug Crime Rate </td>
+                <td> {{stats[20]}} </td>
+            </tr>
+            <tr>
+                <td> Vandalism Crime Rate </td>
+                <td> {{stats[21]}} </td>
+            </tr>
+            <tr>
+                <td> Idenity Theft Crime Rate </td>
+                <td> {{stats[22]}} </td>
+            </tr>
+            <tr>
+                <td> Animal Cruelty Crime Rate </td>
+                <td> {{stats[23]}} </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="center-container">
+        <div class="box box-top-center">
+            <p>This case was based on the Murder of Betsy Faria</p>
+            <p>Link: Pam Hupp Article</p>
+        </div>
+         <!-- The image container -->
+         <div class="image-container">
+            <img src="{{url_for('static', filename='images/mascott.jpg')}}" alt="Image" width="400px" height="450px">
+        </div>
+    </div>
+
+    <div class="box box-right">
+        <p>How to prevent xx crime</p>
+        <p>How to prevent xx crime</p>
+        <p>How to prevent xx crime</p>
+        <p>How to prevent xx crime</p>
+        <p>How to prevent xx crime</p>
+        <p>How to prevent xx crime</p>
+        <p>How to prevent xx crime</p>
+        <p>Hotlines</p>
+    </div>
+</div>
+<div class="button-container">
+    <div class="box-bottom-left">
+        <a href="{{url_for('level_select')}}">
+            <button> Level Select </button>
+        </a>
+    </div>
+    <div class="box-bottom-right">
+        <a href="{{url_for('home')}}">
+            <button> Home </button>
+        </a>
+    </div>
+</div>
+{% endblock content %}

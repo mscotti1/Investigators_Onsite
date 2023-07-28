@@ -27,7 +27,13 @@ def bug_crime_1():
 ##### HOMICIDE ROUTES #####
 @app.route("/hom")
 def homicide():
-    return render_template("Homicide/homicide.html")
+    zipcode = session.get('zipcode')
+    # print("Zippy: ", zipcode)
+    with engine.connect() as connection:
+        stats = db.select(stats_data).filter(stats_data.c.ZipCode == zipcode)
+        statistics = connection.execute(stats).fetchall()
+    print(statistics[0])
+    return render_template("Homicide/homicide.html", stats = statistics[0])
 @app.route("/hom/file")
 def hom_file():
     return render_template("Homicide/file.html")
@@ -59,9 +65,6 @@ def hom_interrogate_2():
 def hom_court_2():
     return render_template("Homicide/court_2.html")
 #####################################################
-@app.route("/hom/crime_2")
-def hom_crime_2():
-    return render_template("Homicide/crime_scene_2.html")
 
 
 # MTA SLAHSER ROUTES
@@ -93,6 +96,7 @@ def interactive():
 def crime_scene():
     return render_template("crime_scene_temp.html")
 
+##### CYBER ROUTES #####
 @app.route("/cyber")
 def Cyber_crime():
     return render_template("CyberCrime/Cyber_crime.html")
@@ -111,6 +115,7 @@ def cyber_listen():
 @app.route("/cyber_file")
 def Cyber_file():
     return render_template("CyberCrime/cyber_file.html")
+#####################################################
 
 @app.route("/level_select")
 def level_select():
@@ -128,13 +133,6 @@ def bug_int():
 def file():
     return render_template("file_template.html")
 
-# @app.route("/api", methods=["POST"])
-# def test():
-    # print("working")
-    # zipcode = request.form.get('zipcode')
-    # print(zipcode)
-    # process_zip(zipcode)
-    # return "hello"
 
 @app.route("/process_zip", methods = ["POST"])
 def process_zip():

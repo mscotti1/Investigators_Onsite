@@ -61,6 +61,7 @@ def api_request(zipcode):
     params = {'zip': zipcode}
     response = requests.get(url, headers=headers, params=params)
     data = response.json()
+    print("data: ", data)
     return data
 
 def parser(zipcode, data, choice):

@@ -129,6 +129,23 @@
         background-repeat: no-repeat;
         background-position: center center;
       }
+
+        .continue{
+            background-color: #1864f3;
+            width: 5%;
+            height: 5%;
+            font-size: 13px;
+            text-align: center;
+            border-radius: 10px;
+            position: absolute;
+            right: 400px;
+            bottom: 300px;
+            color: rgb(238, 233, 233);
+            }
+        .continue:hover{
+            background-color: #a50000;
+            cursor: pointer;
+}
     </style>
   </head>
   <body>
@@ -166,6 +183,11 @@ The Carbanak bank heist was a large-scale cybercrime operation that targeted fin
                 </p>
               </div>
             </div>
+            <a href = "{{url_for('cyber_crime_scene')}}">
+                <button id="continue">
+                Continue 
+        </button>
+    </a>
           </div>
         </div>
       </div>

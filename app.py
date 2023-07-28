@@ -76,6 +76,11 @@ def interrogate_mta():
 def interrogate_mta_two():
     return render_template("MTA_Slasher/interrogation_mta2.html")
 
+@app.route("/file_mta")
+def file_mta():
+    return render_template("MTA_Slasher/file_mta.html")
+#################################################
+
 @app.route("/listen")
 def interrogation():
     return render_template("listen_temp.html")

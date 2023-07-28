@@ -72,7 +72,7 @@
         display: flex; /* Add this line to use flexbox */
         /* justify-content: center; */
         flex-direction: column;
-        text-align: left;
+        text-align: center;
       }
 
       .container-baseline {
@@ -100,8 +100,8 @@
         align-items: center;
         /*text-align: center;*/
         position: absolute;
-        top:80.5em;
-        right: 400.5em;
+        top:95.5em;
+        right: 330.5em;
         font-size: 1px; 
 
         background-image: url("../static/images/stackPaper.png");
@@ -129,23 +129,6 @@
         background-repeat: no-repeat;
         background-position: center center;
       }
-
-        .continue{
-            background-color: #1864f3;
-            width: 5%;
-            height: 5%;
-            font-size: 13px;
-            text-align: center;
-            border-radius: 10px;
-            position: absolute;
-            right: 400px;
-            bottom: 300px;
-            color: rgb(238, 233, 233);
-            }
-        .continue:hover{
-            background-color: #a50000;
-            cursor: pointer;
-}
     </style>
   </head>
   <body>
@@ -154,9 +137,9 @@
         <div class="paper">
           <div id="p1" class="paper-content">
             <div class="container-baseline">
-                <h1>The Carbanak Bank Heist </h1>  
-              <p><b>Summary: </b> 
-The Carbanak bank heist was a large-scale cybercrime operation that targeted financial institutions worldwide. The cybercriminals behind the attack, believed to be a sophisticated American and European hacking group, used advanced malware called Carbanak to infiltrate banks' systems. They gained access through spear-phishing emails, and once inside, they conducted surveillance, stole sensitive data, and manipulated internal banking processes to transfer huge sums of money from various accounts, resulting in losses amounting to hundreds of millions of dollars. </p>
+                <h1>The NYC Subway Slasher </h1>  
+              <p><b>Synopsis: </b> 
+               The NYC Subway Slasher case involved a series of brutal attacks on innocent victims in the subway system. The suspect, later identified as Jason Roberts, targeted women during rush hours, slashing their legs with a sharp object. The attacks left the victims traumatized and caused panic among commuters. Law enforcement obtained crucial evidence, including surveillance footage capturing the suspect's attire, but his face remained hidden. Eyewitness accounts and victim identifications played a pivotal role in connecting Roberts to the crimes. </p>
             </div>
           </div>
         </div>
@@ -164,30 +147,25 @@ The Carbanak bank heist was a large-scale cybercrime operation that targeted fin
       <div class="folder-right">
         <div class="paper">
           <div id="p2" class="paper-content">
-            <h1>Mystery</h1>
+            <h1>Crime</h1>
             <h1>&& Thriller</h1>
             <br />
             <!-- Use <br> to move to the next line -->
 
             <div class="container-center">
               <img
-                src="../static/images/cyberfile.png"
+                src="../static/images/knife.jpeg"
                 width="300"
                 height="300"
               />
               <div class="stackPaper">
                 <p>
                     <b>Hint:</b>
-                    <br>Follow The</br>
-                    Evidence Trail! 
+                    <br>Pay attention to</br>
+                    the clues! 
                 </p>
               </div>
             </div>
-            <a href = "{{url_for('cyber_crime_scene')}}">
-                <button id="continue">
-                Continue 
-        </button>
-    </a>
           </div>
         </div>
       </div>

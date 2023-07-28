@@ -20,90 +20,136 @@
                 </div>
             </div>
             <div class="button-container">
-                <button class="option-button" id='option_L0_1' onclick="node_tracker(current_node.left_opt)"> Did you work alone or with accomplices?</button>
-                <button class="option-button" id='option_R0_1' onclick="node_tracker(current_node.right_opt)">Can you tell us how you gained access to the banks' systems?</button>
+                <button class="option-button" id='option_L0_1' onclick="node_tracker(current_node.left_opt)">  Did you work alone or with accomplices?</button>
+                <button class="option-button" id='option_R0_1' onclick="node_tracker(current_node.right_opt)"> Can you tell us how you gained access to the banks' systems?</button>
                 
-                <button class="option-button" id='option_L1_1' onclick="node_tracker(current_node.left_opt)"> How much money did you steal in total?</button>
-                <button class="option-button" id='option_L1_2' onclick="node_tracker(current_node.right_opt)">Were you approached by anyone to commit the crime?</button>
+                <button class="option-button" id='option_L1_01' onclick="node_tracker(current_node.left_opt)">  How much money did you steal in total?</button>
+                <button class="option-button" id='option_L1_02' onclick="node_tracker(current_node.right_opt)"> Were you approached by anyone to commit the crime?</button>
 
-                <button class="option-button" id='option_R1_1' onclick="node_tracker(current_node.left_opt)"> Did you have any personal motives for targeting these specific banks?</button>
-                <button class="option-button" id='option_R1_2' onclick="node_tracker(current_node.right_opt)">How did you transfer the stolen money without getting caught?</button>
+                <button class="option-button" id='option_L2_01' onclick="node_tracker(current_node.left_opt)"> Did you have any personal motives for targeting these specific banks?</button>
+                <button class="option-button" id='option_L2_02' onclick="node_tracker(current_node.right_opt); set_end(0)">How did you transfer the stolen money without getting caught?</button>
+
+                <button class="option-button" id='option_L2_11' onclick="node_tracker(current_node.left_opt); set_end(0)">  Did you use a specific malware to breach the bank's systems?</button>
+                <button class="option-button" id='option_L2_12' onclick="node_tracker(current_node.right_opt); set_end(0)"> Do you have anything else to say?</button>
+
+                <button class="option-button" id='option_R1_01' onclick="node_tracker(current_node.left_opt)"> Do you have financial issues?</button>
+                <button class="option-button" id='option_R1_02' onclick="node_tracker(current_node.right_opt); set_end(0)">So you wanted to be rich?</button>
+
                 
-                <button class="option-button" id='option_R2_1' onclick="node_tracker(current_node.left_opt)"> Did you use a specific malware to breach the bank's systems?</button>
-                <button class="option-button" id='option_R2_2' onclick="node_tracker(current_node.right_opt)">Do you have anything else to say?</button>
             </div>
         </div>
     </div>
-        <a href = "{{url_for('cyber_crime_scene')}}">
-        <button id="continue">
+        <a href = "{{url_for('hom_court_bad')}}">
+        <button id="continue0" class="continue">
             Continue 
         </button>
     </a>
+ <a href = "{{url_for('Cyber_file2')}}">
+        <button id="continue1" class="continue">
+            Continue 
+        </button>
+    </a>
+
+ 
+
     <script src="{{url_for('static', filename='interactive_temp.js')}}"></script>
- <script>
+    <script>
         const dialogue_start = [
             { sender: 'heard', text: "Mr. Martin, we have evidence linking you to a series of bank heists involving sophisticated cyberattacks. Now, you have a choice. You can either cooperate fully with the investigation, or you can make this harder for yourself. The decision is yours." },
-
+            { sender: 'said', text: "Wha..what?" },
         ];
 
         const right_dia_1 = [
-            { sender: 'said', text: "I gained access through a spear-phishing attack. I sent emails with malicious links to bank employees, and one of them fell for it." },
-            { sender: 'heard', text: "Thank you for your honesty" },
+            { sender: 'said', text: "I used multiple anonymous offshore accounts to funnel the money." },
+            { sender: 'heard', text: "Covering your tracks, I see... "},
+
+        ];
+
+        const right_dia_1_01 = [
+            { sender: 'said', text: "Do you have financial issues?" },
+            { sender: 'heard', text: "I'm not rich but I get by" },
+            { sender: 'said', text: "So you wanted to be rich?" },
+            { sender: 'heard', text: "No!" },
+
+        ];
+
+
+
+        const right_dia_2_02 = [
+            { sender: 'said', text: "You've been wearing that outfit all day?" },
+            { sender: 'heard', text: "Yeah, I haven't exactly been given a chance to change yet." },
+            { sender: 'said', text: "That's true, and a bright orange shirt stands out quite a bit, yeah?" },
+            { sender: 'heard', text: " I guess so…" },
+            { sender: 'said', text: " And I must say, it's rather clean." },
+            { sender: 'said', text: "I doubt you would have been able to have laundry…." },
+            { sender: 'heard', text: "I don't know what you're getting at sir." },
+            { sender: 'said', text: " Nothing, nothing." },
+        ];
+
+        const right_dia_1_02 = [
+            { sender: 'said', text: "I targeted those banks because they rejected my loan applications, and I felt they didn't care about their customers. I wanted to expose their weaknesses." },
+            { sender: 'heard', text: "Your expertise allowed you to operate under the radar. We'll need more details to trace the money." },
+
         ];
 
         const left_dia_1 = [
             { sender: 'said', text: "I... I didn't work alone. There was someone else involved, but I don't know their real identity. We communicated on a darknet forum." },
             { sender: 'heard', text: "We'll try to trace this accomplice" },
-        ];
 
-        const right_dia_1_01 = [
-            { sender: 'said', text: "I... I didn't keep track, but it must be in the millions." },
-            { sender: 'heard', text: "We'll verify the extent of the stolen funds.;)" }
-        ];
-
-        const right_dia_1_02 = [
-            { sender: 'said', text: "I used multiple anonymous offshore accounts to funnel the money." },
-            { sender: 'heard', text: "Please bestie ;)" }
         ];
 
         const left_dia_1_01 = [
             { sender: 'said', text: "I... I didn't keep track, but it must be in the millions" },
-            { sender: 'heard', text: "We'll verify the extent of the stolen funds" }
+            { sender: 'heard', text: "We'll verify the extent of the stolen funds" },
+        ];
+
+        const left_dia_2_01 = [
+            { sender: 'said', text: "I targeted these specific banks because of their lax security measures. I wanted to prove a point that they needed to improve their defenses." },
+            { sender: 'heard', text: "Interesting…" },
+        ];
+
+        const left_dia_2_02 = [
+            { sender: 'said', text: "I made sure to cover my tracks and used encryption to hide my digital footprints." },
+            { sender: 'heard', text: "Thank you for your honesty" },
         ];
 
         const left_dia_1_02 = [
             { sender: 'said', text: "I acted on my own accord" },
-            { sender: 'heard', text: "Taking responsibility is the right step" }
+            { sender: 'heard', text: "Taking responsibility is the right step" },
+
         ];
 
-        const left_dia_2_02 = [
-            { sender: 'said', text: "How did you transfer the stolen money without getting caught?" },
-            { sender: 'heard', text: "Yes, I used a custom-made malware. It was undetectable by most antivirus programs" }
-        ];
-
-        const left_dia_2_01 = [
-            { sender: 'said', text: "Did you use a specific malware to breach the bank's systems?" },
-            { sender: 'heard', text: "Yes, I used a custom-made malware. It was undetectable by most antivirus programs" }
-        ];
-
+        const left_dia_2_11 = [
+            { sender: 'said', text: "Yes, I used a custom-made malware. It was undetectable by most antivirus programs" },
         
+        ];
+
+        const left_dia_2_12 = [
+            { sender: 'said', text: "I've told you everything" },
+        ];
+
+        const right_2_02 = new Script(right_dia_2_02, null,null, null, null);
+        //const right_2_01 = new Script(right_dia_2_01, null, null, null, null);
+
+        const right_1_02 = new Script(right_dia_1_02, null,null, null, null);
+        const right_1_01 = new Script(right_dia_1_01, right_2_02, "#option_R2_01", "#option_R2_02");
+
+        const left_2_12 = new Script(left_dia_2_12, null, null, null, null);
+        const left_2_11 = new Script(left_dia_2_11, null, null, null, null);
+
         const left_2_02 = new Script(left_dia_2_02, null, null, null, null);
         const left_2_01 = new Script(left_dia_2_01, null, null, null, null);
 
-        const right_1_02 = new Script(right_dia_1_02, left_2_01,left_2_02, "#option_R2_1", "#option_R2_2");
-        const right_1_01 = new Script(right_dia_1_01, left_2_01, left_2_02,"#option_R2_1", "#option_R2_2");
+        const left_1_02 = new Script(left_dia_1_02, left_2_11, left_2_12, "#option_L2_11", "#option_L2_12");
+        const left_1_01 = new Script(left_dia_1_01, left_2_01, left_2_02, "#option_L2_01", "#option_L2_02");
 
-        const left_1_02 = new Script(left_dia_1_02, left_2_02, left_2_02, "#option_R2_1", "#option_R2_2");
-        const left_1_01 = new Script(left_dia_1_01, left_2_01, left_2_02, "#option_R2_1", "#option_R2_2");
+        const right_1 = new Script(right_dia_1, right_1_01, right_1_02, "#option_R1_01", "#option_R1_02");
+        const left_1 = new Script(left_dia_1, left_1_01, left_1_02, "#option_L1_01", "#option_L1_02");
 
-        const right_1 = new Script(right_dia_1, right_1_01, right_1_02, "#option_R1_1", "#option_R1_2");
-        const left_1 = new Script(left_dia_1, left_1_01, left_1_02, "#option_L1_1", "#option_L1_2");
-
-        const left_2 = new Script(left_dia_1, left_1_01, left_1_02, "#option_R2_1", "#option_R2_2");
-
-        const root = new Script(dialogue_start, left_1, right_1, '#option_L0_1', 'option_R0_1');
+        const root = new Script(dialogue_start, left_1, right_1, '#option_L0_1', '#option_R0_1');
 
         let current_node = root;
+        
     </script>
     
 </body>
